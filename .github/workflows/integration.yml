@@ -95,6 +95,7 @@ jobs:
         id: fetch_package_size
         run: |
           RESULT=$(curl -u "${{ github.repository_owner }}:${{ secrets.ACCESS_TOKEN }}" -s https://api.github.com/repos/${{ github.repository }}/releases/latest)
+          echo "$RESULT"
           # Parsing JSON
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
