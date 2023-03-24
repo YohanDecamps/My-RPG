@@ -7,7 +7,7 @@ on:
 
 env:
   MIRROR_URL: "git@github.com:EpitechPromo2027/B-MUL-200-BDX-2-1-myrpg-ethan.thierry.git"
-  EXECUTABLES: ""
+  EXECUTABLES: "my_rpg"
 
 jobs:
 
@@ -94,16 +94,16 @@ jobs:
       - name: Fetch package size
         id: fetch_package_size
         run: |
-          RESULT=$(curl -u "${{ github.repository_owner }}:${{ secrets.GITHUB_TOKEN }}" -s https://api.github.com/repos/${{ github.repository }}/releases/latest)
+          RESULT=$(curl -u "${{ github.repository_owner }}:${{ secrets.ACCESS_TOKEN }}" -s https://api.github.com/repos/${{ github.repository }}/releases/latest)
           # Parsing JSON
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          echo "::set-output name=result::$RESULT"
+          echo "result=$RESULT" >> $GITHUB_STATE
 
       - name: Check package size
         run: |
-          SIZE= echo "${{ fromJson(steps.fetch_package_size.outputs.result).version }}"
+          SIZE= "${{ fromJson(env).action_state.size }}"
           $MEGABYTES = $SIZE / 1000000
           if (( $SIZE -gt 30000000 )); then
             echo "::error name=Package size::Package size is too big"
