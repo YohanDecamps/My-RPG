@@ -100,11 +100,11 @@ jobs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
-          echo "result=$content" >> $GITHUB_STATE
+          echo "result=$content" >> $GITHUB_OUTPUT
 
       - name: Check package size
         run: |
-          SIZE= "${{ fromJson(env.action_state).size }}"
+          SIZE= "${{ fromJson(steps.fetch_package_size.outputs.result).size }}"
           $MEGABYTES = $SIZE / 1000000
           if (( $SIZE -gt 30000000 )); then
             echo "::error name=Package size::Package size is too big"
