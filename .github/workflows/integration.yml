@@ -99,6 +99,7 @@ jobs:
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
           content="${content//$'\r'/'%0D'}"
+          echo "result=$content"
           echo "result=$content" >> $GITHUB_OUTPUT
 
       - name: Check package size
