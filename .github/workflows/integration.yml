@@ -95,7 +95,6 @@ jobs:
         id: fetch_package_size
         run: |
           RESULT=$(curl -u "${{ github.repository_owner }}:${{ secrets.ACCESS_TOKEN }}" -s https://api.github.com/repos/${{ github.repository }})
-          echo "$RESULT"
           # Parsing JSON
           content="${content//'%'/'%25'}"
           content="${content//$'\n'/'%0A'}"
@@ -104,6 +103,7 @@ jobs:
 
       - name: Check package size
         run: |
+          echo "${{ steps.fetch_package_size.outputs.result }}"
           SIZE= "${{ fromJson(steps.fetch_package_size.outputs.result).size }}"
           $MEGABYTES = $SIZE / 1000000
           if (( $SIZE -gt 30000000 )); then
