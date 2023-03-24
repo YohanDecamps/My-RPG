@@ -96,9 +96,7 @@ jobs:
         run: |
           RESULT=$(curl -u "${{ github.repository_owner }}:${{ secrets.ACCESS_TOKEN }}" -s https://api.github.com/repos/${{ github.repository }})
           # Parsing JSON
-          content="${content//'%'/'%25'}"
-          content="${content//$'\n'/'%0A'}"
-          content="${content//$'\r'/'%0D'}"
+          content=${RESULT//$'\n'/}
           echo "result=$content"
           echo "result=$content" >> $GITHUB_OUTPUT
 
