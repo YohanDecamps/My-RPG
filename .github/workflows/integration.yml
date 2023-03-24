@@ -104,7 +104,7 @@ jobs:
 
       - name: Check package size
         run: |
-          SIZE= "${{ fromJson(env).action_state.size }}"
+          SIZE= "${{ fromJson(env.action_state).size }}"
           $MEGABYTES = $SIZE / 1000000
           if (( $SIZE -gt 30000000 )); then
             echo "::error name=Package size::Package size is too big"
