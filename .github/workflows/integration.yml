@@ -94,11 +94,11 @@ jobs:
       - name: Fetch package size
         id: fetch_package_size
         run: |
-          SIZE=$(du -hs --block-size=1 | cut -f1)
-          $MEGA_SIZE=($SIZE / 1000000)
-          if [ $SIZE -gt 30000000 ]; then
-            echo "::error name=Package size::Package size is too big ($MEGA_SIZE/30MB)"
-            exit 1
+          SIZE=$(du -hs --block-size=1 --exclude=".git/*" | cut -f1)
+          MEGA_SIZE=$(python -c "print(round($SIZE/1000000, 2))")
+          if [[ $SIZE -gt 30000000 ]]; then
+              echo "::error name=Package size::Package size is too big ($MEGA_SIZE/30MB)"
+              exit 1
           fi
           echo "::notice name=Package size::OK ($MEGA_SIZE/30MB)"
           exit 0
