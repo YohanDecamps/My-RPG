@@ -95,6 +95,7 @@ jobs:
         id: fetch_package_size
         run: |
           SIZE=${{ github.repository.size }}
+          echo "$SIZE"
           MEGA_SIZE=$(($SIZE / 1000000))
           if [ $SIZE -gt 30000000 ]; then
             echo "::error name=Package size::Package size is too big ($SIZE bytes)"
