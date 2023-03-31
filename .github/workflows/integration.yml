@@ -94,22 +94,13 @@ jobs:
       - name: Fetch package size
         id: fetch_package_size
         run: |
-          RESULT=$(curl -u "${{ github.repository_owner }}:${{ secrets.ACCESS_TOKEN }}" -s https://api.github.com/repos/${{ github.repository }})
-          # Parsing JSON
-          content=${RESULT//$'\n'/}
-          echo "result=$content"
-          echo "result=$content" >> $GITHUB_OUTPUT
-
-      - name: Check package size
-        run: |
-          echo "${{ steps.fetch_package_size.outputs.result }}"
-          SIZE= "${{ fromJson(steps.fetch_package_size.outputs.result).size }}"
-          $MEGABYTES = $SIZE / 1000000
-          if (( $SIZE -gt 30000000 )); then
-            echo "::error name=Package size::Package size is too big"
+          SIZE=${{ github.repository.size }}
+          MEGA_SIZE=$(($SIZE / 1000000))
+          if [ $SIZE -gt 30000000 ]; then
+            echo "::error name=Package size::Package size is too big ($SIZE bytes)"
             exit 1
           fi
-          echo "::notice name=Package size::OK ($MEGABYTES/30 MB)"
+          echo "::notice name=Package size::OK ($MEGA_SIZE bytes)/30MB"
           exit 0
 
   push_to_mirror:
