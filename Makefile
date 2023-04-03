@@ -23,7 +23,7 @@ SRC	=	src/main.c						\
 		lib/src/my_strcat.c				\
 		lib/src/my_str_to_word_array.c
 
-TESTS_SRC = ./tests/test_name.c
+TESTS_SRC = ./tests/tests_rpg.c
 
 OBJ	=	$(SRC:.c=.o)
 
@@ -54,10 +54,13 @@ PHONY += debug
 
 clean:
 	rm -f $(OBJ)
+	make -C lib clean
+	find -name "*.gc*" -delete
 PHONY	+= clean
 
 fclean:	clean
 	rm -f $(NAME)
+	rm -f unit_tests
 	make -C lib fclean
 
 PHONY	+= fclean
@@ -69,14 +72,13 @@ run: $(OBJ) lib
 	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
 	./$(NAME)
 
-
-compile_tests:
-	gcc -o unit_tests $(filter-out main.c, $(SRC)) \
-	test_name.c --coverage -lcriterion
+compile_tests: lib
+	gcc -o unit_tests $(filter-out src/main.c, $(SRC)) \
+	$(TESTS_SRC) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) --coverage -lcriterion
 PHONY += compile_tests
 
 tests_run: compile_tests
-	./tests/unit_tests
+	./unit_tests
 PHONY	+= tests_run
 
 test: tests_run
