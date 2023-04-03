@@ -1,0 +1,10 @@
+# Build Files
+*.o
+*.a
+*~
+*#
+
+# Binaries
+*.out
+my_rpg
+unit_tests
