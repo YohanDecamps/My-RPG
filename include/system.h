@@ -12,7 +12,7 @@
 
     /**
      * @brief This function returns the value of the environment variable name,
-                or NULL if the variable is not defined.
+     *        or NULL if the variable is not defined.
      *
      * @param env - environment variables array (Should never be NULL)
      * @param name - name of the environment variable (Should never be NULL)

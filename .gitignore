@@ -4,6 +4,9 @@
 *~
 *#
 
+# Dev Files
+compile_flags.txt
+
 # Binaries
 *.out
 my_rpg
