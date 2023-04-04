@@ -13,7 +13,8 @@ SRC =	src/my_strlen.c			\
 		src/get_buffer.c		\
 		src/int_to_string.c		\
 		src/my_strcat.c			\
-		src/my_str_to_word_array.c
+		src/my_str_to_word_array.c\
+		src/my_strcmp.c			\
 
 OBJ =	$(SRC:.c=.o)
 

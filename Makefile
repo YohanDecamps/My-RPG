@@ -17,7 +17,9 @@ SRC	=	src/main.c						\
 		src/display_framerate.c			\
 		src/init_rpg_values.c			\
 		src/init_rpg_visuals.c			\
-		src/init_other_rpg_vars.c
+		src/init_other_rpg_vars.c		\
+		src/system/saves/fetch_save.c	\
+		src/system/saves/getvalue.c		\
 
 TESTS_SRC = ./tests/tests_rpg.c
 
