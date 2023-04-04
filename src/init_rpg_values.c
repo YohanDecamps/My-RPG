@@ -18,7 +18,7 @@ rpg_t *init_all_values(rpg_t *rpg)
     return (rpg);
 }
 
-rpg_t *init_rpg_varibales(void)
+rpg_t *init_rpg_variables(void)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));
     rpg = init_all_values(rpg);

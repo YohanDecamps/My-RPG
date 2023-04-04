@@ -23,7 +23,7 @@ void draw_all(rpg_t *rpg)
 
 int myrpg(void)
 {
-    rpg_t *rpg = init_rpg_varibales();
+    rpg_t *rpg = init_rpg_variables();
     sfMusic_play(rpg->music);
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
