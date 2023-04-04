@@ -5,7 +5,7 @@
 ** my_str_to_word_array
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 int count_words(char *str, char separator)
 {

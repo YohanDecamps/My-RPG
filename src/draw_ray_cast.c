@@ -5,7 +5,10 @@
 ** draw_ray_cast
 */
 
+#include "lib.h"
 #include "my_rpg.h"
+#include "structures.h"
+#include <math.h>
 
 int is_vertical(float xprd, float yprd)
 {

@@ -5,7 +5,7 @@
 ** create_text
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 struct sfText *create_text(char *displayed_text, int size)
 {

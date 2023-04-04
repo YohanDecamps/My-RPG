@@ -5,7 +5,10 @@
 ** handle_movement
 */
 
+#include "lib.h"
 #include "my_rpg.h"
+#include "structures.h"
+#include <math.h>
 
 rpg_t *handle_direction(rpg_t *rpg, float speed, sfKeyCode key, float angle)
 {

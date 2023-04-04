@@ -6,6 +6,11 @@
 */
 
 #include "my_rpg.h"
+#include "sprites.h"
+#include <SFML/Graphics/CircleShape.h>
+#include <SFML/Graphics/RectangleShape.h>
+#include <SFML/Graphics/Sprite.h>
+#include <stdlib.h>
 
 rpg_t *init_sprite(rpg_t *rpg, char id, char *file)
 {

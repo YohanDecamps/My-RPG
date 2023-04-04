@@ -7,6 +7,7 @@
 
 #include <stdlib.h>
 #include "my_rpg.h"
+#include "lib.h"
 
 static int my_cmpenv(char *name, char *env)
 {

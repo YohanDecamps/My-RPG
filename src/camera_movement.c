@@ -5,6 +5,7 @@
 ** camera_movement
 */
 
+#include "movement.h"
 #include "my_rpg.h"
 
 rpg_t *camera_mouvement(rpg_t *rpg, sfVector2f prev_mouse_pos)

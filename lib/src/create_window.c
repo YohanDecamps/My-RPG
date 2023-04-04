@@ -5,7 +5,7 @@
 ** create_window
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 sfRenderWindow* create_window(char *name)
 {

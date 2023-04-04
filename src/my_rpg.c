@@ -6,6 +6,15 @@
 */
 
 #include "my_rpg.h"
+#include "movement.h"
+#include "sprites.h"
+#include "raycast.h"
+#include "window.h"
+#include "events.h"
+#include <SFML/Audio/Music.h>
+#include <SFML/Graphics/RectangleShape.h>
+#include <SFML/Graphics/RenderTexture.h>
+#include <SFML/Graphics/RenderWindow.h>
 
 void draw_all(rpg_t *rpg)
 {

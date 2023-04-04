@@ -5,7 +5,7 @@
 ** analyse_event
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 void analyse_events(sfRenderWindow *window, sfEvent *event)
 {

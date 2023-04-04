@@ -5,7 +5,7 @@
 ** my_strcat
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 char *my_strcat(char *str1, char *str2)
 {

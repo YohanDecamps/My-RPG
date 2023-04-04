@@ -5,7 +5,10 @@
 ** init_other_rpg_vars
 */
 
+#include "events.h"
+#include "lib.h"
 #include "my_rpg.h"
+#include "structures.h"
 
 void manage_event(rpg_t *rpg)
 {

@@ -5,7 +5,9 @@
 ** draw_map
 */
 
+#include "lib.h"
 #include "my_rpg.h"
+#include "structures.h"
 
 void draw_map_sprite(rpg_t *rpg, int i, int j, char id)
 {

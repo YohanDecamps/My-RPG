@@ -6,6 +6,8 @@
 */
 
 #include "my_rpg.h"
+#include <SFML/Graphics/RenderWindow.h>
+#include <SFML/Window/Mouse.h>
 
 sfVector2f get_mouse_pos(sfRenderWindow *window)
 {

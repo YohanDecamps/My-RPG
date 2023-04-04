@@ -5,6 +5,10 @@
 ** init_rpg_values
 */
 
+#include "lib.h"
+#include "raycast.h"
+#include "structures.h"
+#include "sprites.h"
 #include "my_rpg.h"
 
 rpg_t *init_all_values(rpg_t *rpg)

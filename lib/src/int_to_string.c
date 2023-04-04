@@ -5,7 +5,7 @@
 ** convertions
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 int my_int_len(int x)
 {

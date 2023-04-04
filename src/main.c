@@ -5,6 +5,7 @@
 ** main
 */
 
+#include "lib.h"
 #include "my_rpg.h"
 #include "system.h"
 

@@ -5,7 +5,9 @@
 ** display_framerate
 */
 
+#include "lib.h"
 #include "my_rpg.h"
+#include "structures.h"
 
 void display_framerate(rpg_t *rpg)
 {

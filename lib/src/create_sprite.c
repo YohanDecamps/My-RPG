@@ -5,7 +5,7 @@
 ** create_sprite
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 sfSprite *create_sprite(char *file, sfVector2f scale)
 {

@@ -5,7 +5,7 @@
 ** get_buffer
 */
 
-#include "../include/my.h"
+#include "../include/lib.h"
 
 char *get_buffer(const char *filename)
 {

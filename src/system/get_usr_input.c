@@ -6,6 +6,10 @@
 */
 
 #include "my_rpg.h"
+#include "lib.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 char *get_user_input(void)
 {
