@@ -6,6 +6,7 @@
 */
 
 #include "my_rpg.h"
+#include "main_menu.h"
 #include "movement.h"
 #include "sprites.h"
 #include "raycast.h"
@@ -33,6 +34,7 @@ void draw_all(rpg_t *rpg)
 int myrpg(void)
 {
     rpg_t *rpg = init_rpg_variables();
+    main_menu(rpg->window, rpg->event);
     sfMusic_play(rpg->music);
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});

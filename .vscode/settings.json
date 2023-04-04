@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "main_menu.h": "c",
+        "rendertexture.h": "c",
+        "sprite.h": "c"
+    }
+}

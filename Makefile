@@ -5,19 +5,28 @@
 ## make file
 ##
 
-SRC	=	src/main.c						\
-		src/my_rpg.c					\
-		src/system/get_usr_input.c		\
-    	src/system/getenv.c				\
-		src/system/get_mouse_pos.c		\
-		src/handle_movement.c			\
-		src/draw_map.c					\
-		src/draw_ray_cast.c				\
-		src/camera_movement.c			\
-		src/display_framerate.c			\
-		src/init_rpg_values.c			\
-		src/init_rpg_visuals.c			\
-		src/init_other_rpg_vars.c
+SRC	=	src/main.c							\
+		src/my_rpg.c						\
+		src/system/get_usr_input.c			\
+    	src/system/getenv.c					\
+		src/system/get_mouse_pos.c			\
+		src/handle_movement.c				\
+		src/draw_map.c						\
+		src/draw_ray_cast.c					\
+		src/camera_movement.c				\
+		src/display_framerate.c				\
+		src/init_rpg_values.c				\
+		src/init_rpg_visuals.c				\
+		src/init_other_rpg_vars.c			\
+		src/main_menu/draw_all_buttons.c	\
+		src/main_menu/draw_button.c 		\
+		src/main_menu/init_all_buttons.c 	\
+		src/main_menu/init_button.c 		\
+		src/main_menu/is_clicked.c 			\
+		src/main_menu/is_hover.c 			\
+		src/main_menu/main_menu.c 			\
+		src/main_menu/update_all_buttons.c 	\
+		src/main_menu/update_button.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 
