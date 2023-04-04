@@ -49,7 +49,6 @@
      */
     sfRenderWindow* create_window(char *name);
 
-
     /**
      * @brief This function splits a string into an array of strings
      *

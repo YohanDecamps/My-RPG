@@ -5,11 +5,11 @@
 ## Make config file
 ##
 
-SRC =	src/my_strlen.c				\
-		src/analyse_event.c			\
-		src/create_window.c			\
-		src/create_text.c			\
-		src/create_sprite.c			\
+SRC =	src/my_strlen.c			\
+		src/analyse_event.c		\
+		src/create_window.c		\
+		src/create_text.c		\
+		src/create_sprite.c		\
 		src/get_buffer.c		\
 		src/int_to_string.c		\
 		src/my_strcat.c			\
