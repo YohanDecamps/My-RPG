@@ -43,5 +43,15 @@
      */
     char *save_getvalue(save_entry_t **save, char *name);
 
+    /**
+     * @brief This function sets the value of the save entry with the name
+     *
+     * @param save - array of save_entry_t
+     * @param name - name of the save entry
+     * @param value - value of the save entry
+     * @return save_entry_t** - array of save_entry_t
+     */
+    save_entry_t **save_setvalue(save_entry_t **save, char *name, char *value);
+
 
 #endif /* !SYSTEM_H */
