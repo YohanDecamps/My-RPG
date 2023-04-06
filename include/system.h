@@ -69,4 +69,13 @@
      */
     void save_freesave(save_entry_t **save);
 
+    /**
+     * @brief This function writes the save_entry_t array to a file
+     *
+     * @param save - array of save_entry_t
+     * @param filename - name of the save file
+     * @return int - 0 if success, -1 if error
+     */
+    int save_writesave(save_entry_t **save, char *filename);
+
 #endif /* !SYSTEM_H */

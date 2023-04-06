@@ -40,7 +40,7 @@ save_entry_t **save_setvalue(save_entry_t **save, char *name, char *value)
     save[i] = malloc(sizeof(save_entry_t));
     if (save[i] == NULL)
         return NULL;
-    save[i]->name = name;
-    save[i]->value = value;
+    save[i]->name = my_strdup(name);
+    save[i]->value = my_strdup(value);
     return save;
 }

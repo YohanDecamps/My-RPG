@@ -101,4 +101,12 @@
      */
     int my_strcmp(char const *s1, char const *s2);
 
+    /**
+     * @brief This function returns a duped string
+     *
+     * @param str - The string to be duped (not NULL)
+     * @return char* - The duplicated string
+     */
+    char *my_strdup(char const *str);
+
 #endif
