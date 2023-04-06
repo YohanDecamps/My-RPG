@@ -30,7 +30,7 @@ save_entry_t **save_setvalue(save_entry_t **save, char *name, char *value)
     int i = 0;
     for (; save[i] != NULL; i++) {
         if (my_strcmp(save[i]->name, name) == 0) {
-            save[i]->value = value;
+            save[i]->value = my_strdup(value);
             return save;
         }
     }

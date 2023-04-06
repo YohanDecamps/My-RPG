@@ -13,7 +13,7 @@ int save_writesave(save_entry_t **save, char *filename)
 {
     if (filename == NULL || save == NULL)
         return ERROR;
-    int file = open(filename, O_WRONLY | O_CREAT);
+    int file = open(filename, O_WRONLY | O_CREAT, 0666);
     if (file == -1) return ERROR;
     int size = 0;
     for (int i = 0; save[i] != NULL; i++) {

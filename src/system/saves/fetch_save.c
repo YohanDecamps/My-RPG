@@ -9,6 +9,7 @@
 #include "structures.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 static int get_save_size(char *filename)
 {
@@ -25,6 +26,19 @@ static int get_save_size(char *filename)
     return size;
 }
 
+static int validate_string(char *str)
+{
+    bool valid = false;
+    int i = 0;
+    for (;str[i] != '\0'; i++) {
+        if (str[i] == '=')
+            valid = true;
+    }
+    if (str[i - 1] == '\n')
+        str[i - 1] = '\0';
+    return valid;
+}
+
 save_entry_t **fetch_save(char *filename)
 {
     if (filename == NULL) return NULL;
@@ -35,11 +49,11 @@ save_entry_t **fetch_save(char *filename)
     char *line = NULL;
     size_t len = 0;
     for (int i = 0; getline(&line, &len, file) != -1; i++) {
+        if (!validate_string(line)) return NULL;
         if ((save[i] = malloc(sizeof(save_entry_t))) == NULL)
             return NULL;
         char **split = my_str_to_word_array(line, '=');
-        if (split == NULL)
-            return NULL;
+        if (split == NULL) return NULL;
         save[i]->name = split[0];
         save[i]->value = split[1];
         free(split);
