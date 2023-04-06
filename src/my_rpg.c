@@ -34,21 +34,31 @@ void draw_all(rpg_t *rpg)
 
 int myrpg(void)
 {
-    rpg_t *rpg = init_rpg_variables();
-    sfMusic_play(rpg->music);
-    while (sfRenderWindow_isOpen(rpg->window)) {
-        sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
-        sfRenderTexture_clear(rpg->map_texture, sfTransparent);
-        manage_event(rpg);
-        rpg = handle_player_pos(rpg);
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfMusic_stop(rpg->metal_pipe_sound);
-            sfMusic_play(rpg->metal_pipe_sound);
-        }
-        rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
-        draw_all(rpg);
-        display_framerate(rpg);
-        sfRenderWindow_display(rpg->window);
-    }
+    save_entry_t **save = fetch_save("save");
+
+    // save = save_setvalue(save, "difficulty", "hard");
+    // save = save_setvalue(save, "volume", "100");
+    // save = save_delvalue(save, "allow-flight");
+    save_freesave(save);
+
+    // for (int i = 0; save[i] != NULL; i++)
+    //     printf("%s: %s\n", save[i]->name, save[i]->value);
+
+    // rpg_t *rpg = init_rpg_variables();
+    // sfMusic_play(rpg->music);
+    // while (sfRenderWindow_isOpen(rpg->window)) {
+    //     sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
+    //     sfRenderTexture_clear(rpg->map_texture, sfTransparent);
+    //     manage_event(rpg);
+    //     rpg = handle_player_pos(rpg);
+    //     if (sfMouse_isButtonPressed(sfMouseLeft)) {
+    //         sfMusic_stop(rpg->metal_pipe_sound);
+    //         sfMusic_play(rpg->metal_pipe_sound);
+    //     }
+    //     rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
+    //     draw_all(rpg);
+    //     display_framerate(rpg);
+    //     sfRenderWindow_display(rpg->window);
+    // }
     return (0);
 }

@@ -62,4 +62,11 @@
      */
     save_entry_t **save_delvalue(save_entry_t **save, char *name);
 
+    /**
+     * @brief This function frees the save_entry_t array
+     *
+     * @param save - array of save_entry_t
+     */
+    void save_freesave(save_entry_t **save);
+
 #endif /* !SYSTEM_H */

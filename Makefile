@@ -22,6 +22,7 @@ SRC	=	src/main.c						\
 		src/system/saves/getvalue.c		\
 		src/system/saves/setvalue.c		\
 		src/system/saves/delvalue.c		\
+		src/system/saves/freesave.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 

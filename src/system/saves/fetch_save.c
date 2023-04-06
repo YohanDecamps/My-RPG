@@ -27,8 +27,7 @@ static int get_save_size(char *filename)
 
 save_entry_t **fetch_save(char *filename)
 {
-    if (filename == NULL)
-        return NULL;
+    if (filename == NULL) return NULL;
     int size = get_save_size(filename);
     save_entry_t **save = malloc(sizeof(save_entry_t*) * (size + 1));
     if (save == NULL) return NULL;
@@ -36,15 +35,16 @@ save_entry_t **fetch_save(char *filename)
     char *line = NULL;
     size_t len = 0;
     for (int i = 0; getline(&line, &len, file) != -1; i++) {
-        save[i] = malloc(sizeof(save_entry_t));
-        if (save[i] == NULL)
+        if ((save[i] = malloc(sizeof(save_entry_t))) == NULL)
             return NULL;
         char **split = my_str_to_word_array(line, '=');
         if (split == NULL)
             return NULL;
         save[i]->name = split[0];
         save[i]->value = split[1];
+        free(split);
     }
     save[size] = NULL;
+    free(line);
     return save;
 }

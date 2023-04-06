@@ -7,6 +7,7 @@
 # Dev Files
 compile_flags.txt
 *.log
+/.vscode
 
 # Binaries
 *.out
