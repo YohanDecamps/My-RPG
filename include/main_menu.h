@@ -43,5 +43,7 @@
     int main_menu(sfRenderWindow *window, sfEvent *event);
     button_t **update_all_buttons(button_t **buttons, sfEvent *event,
     sfRenderWindow *window);
+    void draw_main_menu_buttons(button_t **buttons, sfRenderWindow *window);
+    void set_all_button(button_t **all_buttons, enum e_gui_state new_state);
 
 #endif /* !MAIN_MENU_H_ */

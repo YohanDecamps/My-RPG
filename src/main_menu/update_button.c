@@ -4,23 +4,29 @@
 ** File description:
 ** update_button
 */
-
 #include "main_menu.h"
+
+static void update_button_mousbuttonreleased(struct button_s *button,
+sfRenderWindow *window)
+{
+    if (button->is_hover(button, window) && button->state == PRESSED)
+        button->state = HOVER;
+    else if (button->is_hover(button, window) && button->state != PRESSED)
+        button->state = PRESSED;
+}
 
 struct button_s *update_button(struct button_s *button, sfEvent *event,
 sfRenderWindow *window)
 {
     if (event->type == sfEvtMouseMoved)
-        if (button->is_hover(button, window))
+        if (button->is_hover(button, window) && button->state != PRESSED)
             button->state = HOVER;
-    if (event->type == sfEvtMouseButtonReleased)
-        if (button->is_clicked(button, window))
-            button->state = PRESSED;
+    if (event->type == sfEvtMouseButtonReleased) {
+        update_button_mousbuttonreleased(button, window);
+    }
     if (event->type == sfEvtMouseMoved)
-        if (button->is_hover(button, window) == sfFalse)
-            button->state = NONE;
-    if (sfMouse_isButtonPressed(sfMouseLeft))
-        if (button->is_clicked(button, window))
+        if (button->is_hover(button, window) == sfFalse &&
+        button->state != PRESSED)
             button->state = NONE;
     return (button);
 }
