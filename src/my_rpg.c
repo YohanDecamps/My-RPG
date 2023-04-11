@@ -6,7 +6,7 @@
 */
 
 #include "my_rpg.h"
-#include "main_menu.h"
+#include "menu.h"
 #include "movement.h"
 #include "sprites.h"
 #include "raycast.h"
@@ -23,7 +23,6 @@ void draw_all(rpg_t *rpg)
     (sfVector2f) {0, rpg->y_offset});
     sfRenderWindow_drawRectangleShape(rpg->window, rpg->floor, NULL);
     rpg = draw_all_ray_casts(rpg);
-    sfMouse_setPosition((sfVector2i) {960, 540}, (sfWindow *) rpg->window);
     rpg->prev_mouse_pos = get_mouse_pos(rpg->window);
     if (sfKeyboard_isKeyPressed(sfKeyM) ||
     sfKeyboard_isKeyPressed(sfKeyTab))
@@ -34,19 +33,20 @@ void draw_all(rpg_t *rpg)
 int myrpg(void)
 {
     rpg_t *rpg = init_rpg_variables();
-    if (main_menu(rpg->window, rpg->event) == 1)
-        return 0;
+    main_menu(rpg->window, rpg->event, rpg);
     sfMusic_play(rpg->music);
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
-        manage_event(rpg);
+        if (manage_event(rpg) == 1)
+            return 0;
         rpg = handle_player_pos(rpg);
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_stop(rpg->metal_pipe_sound);
             sfMusic_play(rpg->metal_pipe_sound);
         }
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
+        sfMouse_setPosition((sfVector2i) {960, 540}, (sfWindow *) rpg->window);
         draw_all(rpg);
         display_framerate(rpg);
         sfRenderWindow_display(rpg->window);

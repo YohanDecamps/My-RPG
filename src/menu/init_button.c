@@ -5,12 +5,12 @@
 ** init_button
 */
 
-#include "main_menu.h"
+#include "menu.h"
 
 static sfText *create_text(char *str)
 {
     sfText *text = sfText_create();
-    sfFont *shrek = sfFont_createFromFile("src/main_menu/Shrek.ttf");
+    sfFont *shrek = sfFont_createFromFile("src/menu/Shrek.ttf");
     sfText_setFont(text, shrek);
     sfText_setString(text, str);
     sfText_setCharacterSize(text, 30);

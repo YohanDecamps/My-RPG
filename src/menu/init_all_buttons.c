@@ -4,7 +4,17 @@
 ** File description:
 ** init_all_buttons
 */
-#include "main_menu.h"
+#include "menu.h"
+
+static void init_pause_menu_button(button_t **all_buttons)
+{
+    all_buttons[8] = init_button((sfVector2f) {840, 300}, (sfVector2f)
+    {250, 75}, "Resume Game");
+    all_buttons[9] = init_button((sfVector2f) {840, 400}, (sfVector2f)
+    {250, 75}, "Save");
+    all_buttons[10] = init_button((sfVector2f) {840, 600}, (sfVector2f)
+    {250, 75}, "Exit to Main Menu");
+}
 
 static void init_main_menu_buttons(button_t **all_buttons)
 {
@@ -28,14 +38,15 @@ static void init_main_menu_buttons(button_t **all_buttons)
 
 button_t **init_all_buttons(void)
 {
-    button_t **all_buttons = malloc(sizeof(button_t *) * 10);
+    button_t **all_buttons = malloc(sizeof(button_t *) * 11);
     if (all_buttons == NULL)
         return NULL;
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 11; i++) {
         all_buttons[i] = malloc(sizeof(button_t));
         if (all_buttons[i] == NULL)
             return NULL;
     }
     init_main_menu_buttons(all_buttons);
+    init_pause_menu_button(all_buttons);
     return all_buttons;
 }

@@ -4,7 +4,7 @@
 ** File description:
 ** update_button
 */
-#include "main_menu.h"
+#include "menu.h"
 
 static void update_button_mousbuttonreleased(struct button_s *button,
 sfRenderWindow *window)

@@ -5,7 +5,7 @@
 ** draw_button
 */
 
-#include "main_menu.h"
+#include "menu.h"
 
 static void button_clicked(struct button_s *button)
 {

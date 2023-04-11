@@ -13,6 +13,7 @@
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Graphics.h>
     #include <stdlib.h>
+    #include "structures.h"
 
     enum e_gui_state {
         NONE = 0,
@@ -40,10 +41,14 @@
     sfRenderWindow *window);
     void draw_all_buttons(button_t **all_buttons, sfRenderWindow *window);
     button_t **init_all_buttons(void);
-    int main_menu(sfRenderWindow *window, sfEvent *event);
+    int main_menu(sfRenderWindow *window, sfEvent *event, rpg_t *rpg);
     button_t **update_all_buttons(button_t **buttons, sfEvent *event,
     sfRenderWindow *window);
     void draw_main_menu_buttons(button_t **buttons, sfRenderWindow *window);
     void set_all_button(button_t **all_buttons, enum e_gui_state new_state);
+    void draw_pause_menu(button_t **all_buttons, sfRenderWindow *window);
+    int pause_menu(rpg_t *rpg);
+    void analyse_button_events(sfEvent *event, sfRenderWindow *window,
+    button_t **all_buttons);
 
 #endif /* !MAIN_MENU_H_ */

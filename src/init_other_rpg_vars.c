@@ -6,17 +6,20 @@
 */
 
 #include "events.h"
+#include "menu.h"
 #include "lib.h"
 #include "my_rpg.h"
 #include "structures.h"
 
-void manage_event(rpg_t *rpg)
+int manage_event(rpg_t *rpg)
 {
     while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
-        if (sfKeyboard_isKeyPressed(sfKeyEscape))
-            sfRenderWindow_close(rpg->window);
+        if (sfKeyboard_isKeyPressed(sfKeyEscape) && pause_menu(rpg) == 1) {
+            return pause_menu(rpg);
+        }
         analyse_events(rpg->window, rpg->event);
     }
+    return 2;
 }
 
 rpg_t *init_sounds(rpg_t *rpg)

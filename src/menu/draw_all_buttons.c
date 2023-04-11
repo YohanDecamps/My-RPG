@@ -5,11 +5,11 @@
 ** draw_buttons
 */
 
-#include "main_menu.h"
+#include "menu.h"
 
 void draw_all_buttons(button_t **all_buttons, sfRenderWindow *window)
 {
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 12; i++)
         draw_button(all_buttons[i], window);
 }
 

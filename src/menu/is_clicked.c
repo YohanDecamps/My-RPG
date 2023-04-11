@@ -2,13 +2,13 @@
 ** EPITECH PROJECT, 2023
 ** my_rpg
 ** File description:
-** is_hover
+** is_clicked
 */
 
-#include "main_menu.h"
+#include "menu.h"
 #include "movement.h"
 
-sfBool is_hover(struct button_s* button, sfRenderWindow *window)
+sfBool is_clicked(struct button_s* button, sfRenderWindow *window)
 {
     sfVector2f rect_pos = sfRectangleShape_getPosition(button->rect);
     sfVector2f rect_size = sfRectangleShape_getSize(button->rect);
