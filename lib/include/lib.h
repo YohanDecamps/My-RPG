@@ -92,4 +92,21 @@
      */
     char *my_strcat(char *str1, char *str2);
 
+    /**
+     * @brief Comparing two strings and returning the difference
+     *
+     * @param s1 - The first string
+     * @param s2 - The second string
+     * @return int - The difference between the two strings (0 if equal)
+     */
+    int my_strcmp(char const *s1, char const *s2);
+
+    /**
+     * @brief This function returns a duped string
+     *
+     * @param str - The string to be duped (not NULL)
+     * @return char* - The duplicated string
+     */
+    char *my_strdup(char const *str);
+
 #endif
