@@ -30,6 +30,11 @@
         sfVertex hit_point;
     } ray_cast_t;
 
+    typedef struct save_entry_s {
+        char *name;
+        char *value;
+    } save_entry_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
