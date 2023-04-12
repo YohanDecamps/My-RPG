@@ -5,6 +5,7 @@
 ** update_buttons
 */
 
+#include "structures.h"
 #include "menu.h"
 
 void set_all_button(button_t **all_buttons, enum e_gui_state new_state)

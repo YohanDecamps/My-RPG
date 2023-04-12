@@ -6,6 +6,7 @@
 */
 
 #include "menu.h"
+#include "structures.h"
 
 void draw_all_buttons(button_t **all_buttons, sfRenderWindow *window)
 {

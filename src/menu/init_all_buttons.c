@@ -5,6 +5,7 @@
 ** init_all_buttons
 */
 #include "menu.h"
+#include "structures.h"
 
 static void init_pause_menu_button(button_t **all_buttons)
 {

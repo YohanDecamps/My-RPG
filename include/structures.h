@@ -9,9 +9,11 @@
     #define STRUCTURES_H_
 
     #include <SFML/Audio/Types.h>
+    #include <SFML/Audio/Export.h>
     #include <SFML/Graphics/Color.h>
     #include <SFML/Graphics/Types.h>
     #include <SFML/Graphics/Vertex.h>
+    #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
 
     typedef struct map_s {
@@ -29,6 +31,22 @@
         float distance;
         sfVertex hit_point;
     } ray_cast_t;
+
+    enum e_gui_state {
+        NONE = 0,
+        HOVER,
+        PRESSED,
+    };
+
+    typedef struct button_s {
+        sfRectangleShape *rect;
+        sfText *name;
+        sfBool (*is_clicked) (struct button_s* button, sfRenderWindow *window);
+        sfBool (*is_hover) (struct button_s* button, sfRenderWindow *window);
+        enum e_gui_state state;
+        sfFloatRect hitbox;
+        int is_toggle;
+    } button_t;
 
     typedef struct rpg_s {
         sfRenderWindow *window;

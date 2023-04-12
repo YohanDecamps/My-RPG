@@ -6,6 +6,7 @@
 */
 
 #include "menu.h"
+#include "structures.h"
 #include "movement.h"
 
 sfBool is_clicked(struct button_s* button, sfRenderWindow *window)

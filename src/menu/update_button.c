@@ -4,6 +4,7 @@
 ** File description:
 ** update_button
 */
+#include "structures.h"
 #include "menu.h"
 
 static void update_button_mousbuttonreleased(struct button_s *button,

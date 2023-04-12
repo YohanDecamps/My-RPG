@@ -5,6 +5,7 @@
 ** draw_button
 */
 
+#include "structures.h"
 #include "menu.h"
 
 static void button_clicked(struct button_s *button)
