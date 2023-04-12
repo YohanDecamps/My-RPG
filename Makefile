@@ -43,7 +43,7 @@ LDFLAGS += -L./lib -lmy -lm -lcsfml-graphics -lcsfml-audio \
 
 CPPFLAGS += -I./include
 
-DEBUGFLAGS = -g
+DEBUGFLAGS = -ggdb3
 
 all:	$(NAME)
 PHONY	+= all
