@@ -28,7 +28,7 @@ SRC	=	src/main.c							\
 		src/menu/pause_menu.c 				\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
-		src/menu/update_button.c
+		src/menu/update_button.c \
 		src/system/saves/fetch_save.c	\
 		src/system/saves/getvalue.c		\
 		src/system/saves/setvalue.c		\
