@@ -5,12 +5,10 @@
 ** particle
 */
 
-#include "structures.h"
-#include "stdlib.h"
-#include <SFML/Graphics.h>
+#include "particle.h"
 
-    static const int gravity_x = 0;
-    static const int gravity_y = 6000;
+static const int gravity_x = 0;
+static const int gravity_y = 6000;
 
 static sfCircleShape *create_circle (sfVector2f position, float radius)
 {
