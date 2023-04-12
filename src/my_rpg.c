@@ -10,6 +10,8 @@
 #include "movement.h"
 #include "sprites.h"
 #include "raycast.h"
+#include "structures.h"
+#include "system.h"
 #include "window.h"
 #include "events.h"
 #include <SFML/Audio/Music.h>
