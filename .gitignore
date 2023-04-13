@@ -3,6 +3,7 @@
 *.a
 *~
 *#
+.vscode
 
 # Dev Files
 compile_flags.txt
