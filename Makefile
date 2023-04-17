@@ -34,7 +34,9 @@ SRC	=	src/main.c							\
 		src/system/saves/setvalue.c		\
 		src/system/saves/delvalue.c		\
 		src/system/saves/freesave.c		\
-		src/system/saves/writesave.c
+		src/system/saves/writesave.c \
+		src/dialogs/create_dialogs.c \
+		src/dialogs/display_dialogs.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 
@@ -49,7 +51,7 @@ LDFLAGS += -L./lib -lmy -lm -lcsfml-graphics -lcsfml-audio \
 
 CPPFLAGS += -I./include
 
-DEBUGFLAGS = -ggdb3
+DEBUGFLAGS = -ggdb3 -fsanitize=address
 
 all:	$(NAME)
 PHONY	+= all
