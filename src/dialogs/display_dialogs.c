@@ -31,7 +31,8 @@ sfSprite *init_dialog_sprite(void)
     sfSprite *dialog = sfSprite_create();
     if (dialog == NULL)
         return NULL;
-    sfTexture *dialog_texture = sfTexture_createFromFile("assets/dialogbox.png", NULL);
+    sfTexture *dialog_texture =
+        sfTexture_createFromFile("assets/dialogbox.png", NULL);
     if (dialog_texture == NULL)
         return NULL;
     sfSprite_setTexture(dialog, dialog_texture, sfTrue);
@@ -50,12 +51,10 @@ static dialog_dim_t get_window_size(sfRenderWindow *window, sfSprite *dialog)
     sfSprite_setScale(dialog, scale);
     sfVector2f dialog_pos =
         (sfVector2f) {0, size.y - (texture_size.y * scale.y)};
-    sfVector2f name_pos =
-        (sfVector2f) {NAME_POSITION.x * scale.x,
-                          size.y - (NAME_POSITION.y * scale.y)};
-    sfVector2f text_pos =
-        (sfVector2f) {TEXT_POSITION.x * scale.y,
-                         size.y - (TEXT_POSITION.y * scale.y)};
+    sfVector2f name_pos = (sfVector2f) {NAME_POSITION.x * scale.x,
+                        size.y - (NAME_POSITION.y * scale.y)};
+    sfVector2f text_pos = (sfVector2f) {TEXT_POSITION.x * scale.y,
+                        size.y - (TEXT_POSITION.y * scale.y)};
     return (dialog_dim_t){dialog_pos, name_pos, text_pos, scale};
 }
 
