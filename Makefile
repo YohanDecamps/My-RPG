@@ -18,6 +18,7 @@ SRC	=	src/main.c							\
 		src/init_rpg_values.c				\
 		src/init_rpg_visuals.c				\
 		src/init_other_rpg_vars.c			\
+		src/save.c							\
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
 		src/menu/init_all_buttons.c 		\

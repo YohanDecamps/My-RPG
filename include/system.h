@@ -9,7 +9,7 @@
     #define SYSTEM_H
 
     #include "structures.h"
-#include <SFML/Graphics/Types.h>
+    #include <SFML/Graphics/Types.h>
 
     /**
      * @brief This function returns the value of the environment variable name,
@@ -77,5 +77,12 @@
      * @return int - 0 if success, -1 if error
      */
     int save_writesave(save_entry_t **save, char *filename);
+
+    /**
+     * @brief This function save the nessesary information of the rpg struct
+     *
+     * @param rpg - the rpg struct, where the information to save is stored
+     */
+    void save (rpg_t *rpg);
 
 #endif /* !SYSTEM_H */

@@ -8,6 +8,8 @@
 #include "my_rpg.h"
 #include "structures.h"
 #include "sprites.h"
+#include <unistd.h>
+#include <stdio.h>
 
 void show_saves(button_t **all_buttons, sfRenderWindow *window)
 {

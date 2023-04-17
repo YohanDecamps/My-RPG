@@ -7,6 +7,8 @@
 #include "menu.h"
 #include "structures.h"
 #include "my_rpg.h"
+#include "system.h"
+#include <stdio.h>
 
 void draw_pause_menu(button_t **all_buttons, sfRenderWindow *window)
 {
@@ -28,6 +30,9 @@ int pause_menu(rpg_t *rpg)
         }
         if (all_buttons[10]->state == PRESSED)
             return main_menu(rpg->window, rpg->event, rpg);
+        if (all_buttons[9]->state == PRESSED) {
+            save(rpg);
+        }
         draw_all(rpg);
         draw_pause_menu(all_buttons, rpg->window);
         sfRenderWindow_display(rpg->window);
