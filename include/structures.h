@@ -16,6 +16,25 @@
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
 
+    // gravity suggested value = {0, 6000}
+    // medium_speed suggested value = 40000
+    typedef struct particles_args {
+        sfVector2f position;
+        sfTexture *texture;
+        int medium_speed_x;
+        int medium_speed_y;
+        int nbr;
+        int radius;
+    } particles_args_t;
+
+    typedef struct verletobject {
+        sfCircleShape *circle;
+        sfVector2f curr_pos;
+        sfVector2f old_pos;
+        sfVector2f acceleration;
+        int need_to_be_killed;
+    } verlet_t;
+
     typedef struct map_s {
         char **array;
         int y;
