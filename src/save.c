@@ -62,6 +62,25 @@ char *get_str_from_float(float number, int precision)
     return result;
 }
 
+float get_float_from_str(char* str)
+{
+    int result = 0;
+    float decimal = 0.0;
+    float divisor = 1.0;
+
+    while (*str != '.') {
+        result = result * 10 + (*str - '0');
+        ++str;
+    }
+    str++;
+    while (*str) {
+        decimal = decimal + ((*str - '0') * divisor);
+        divisor *= 10;
+        ++str;
+    }
+    return result + decimal;
+}
+
 void save (rpg_t *rpg)
 {
     save_entry_t **save_info = malloc(sizeof(save_entry_t) * 3);
