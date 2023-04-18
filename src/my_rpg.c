@@ -48,7 +48,8 @@ int myrpg(void)
             sfMusic_play(rpg->metal_pipe_sound);
         }
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
-        sfMouse_setPosition((sfVector2i) {960, 540}, (sfWindow *) rpg->window);
+        sfMouse_setPosition((sfVector2i) {rpg->size_x / 2, rpg->size_y / 2},
+        (sfWindow *) rpg->window);
         draw_all(rpg);
         display_framerate(rpg);
         sfRenderWindow_display(rpg->window);

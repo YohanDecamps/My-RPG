@@ -7,10 +7,19 @@
 #include "menu.h"
 #include "structures.h"
 
+static void init_resolution_buttons(button_t **all_buttons)
+{
+    all_buttons[19] = init_button((sfVector2f) {400, 100}, (sfVector2f)
+    {250, 75}, "1920 x 1080");
+    all_buttons[20] = init_button((sfVector2f) {400, 200}, (sfVector2f)
+    {250, 75}, "690 * 420");
+}
+
 static void init_settings_buttons(button_t **all_buttons)
 {
     all_buttons[11] = init_button((sfVector2f) {570, 200}, (sfVector2f)
     {250, 75}, "Resolution");
+    init_resolution_buttons(all_buttons);
     all_buttons[12] = init_button((sfVector2f) {570, 300}, (sfVector2f)
     {250, 75}, "Sensitivity");
     all_buttons[13] = init_button((sfVector2f) {570, 400}, (sfVector2f)
@@ -59,10 +68,10 @@ static void init_main_menu_buttons(button_t **all_buttons)
 
 button_t **init_all_buttons(void)
 {
-    button_t **all_buttons = malloc(sizeof(button_t *) * 19);
+    button_t **all_buttons = malloc(sizeof(button_t *) * 21);
     if (all_buttons == NULL)
         return NULL;
-    for (int i = 0; i < 19; i++) {
+    for (int i = 0; i < 21; i++) {
         all_buttons[i] = malloc(sizeof(button_t));
         if (all_buttons[i] == NULL)
             return NULL;

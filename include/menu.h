@@ -153,8 +153,9 @@
      *
      * @param all_buttons
      * @param rpg
+     * @param menu - indicates wich menu the function was called from
      * @return int
      */
-    int settings_menu(button_t **all_buttons, rpg_t *rpg);
+    int settings_menu(button_t **all_buttons, rpg_t *rpg, char *menu);
 
 #endif /* !MAIN_MENU_H_ */

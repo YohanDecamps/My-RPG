@@ -83,6 +83,8 @@
         sfVector2f prev_mouse_pos;
         float gamma;
         float speed;
+        int size_x;
+        int size_y;
         movement_keys_t *key_binds;
     } rpg_t;
 

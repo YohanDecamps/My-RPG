@@ -48,7 +48,7 @@ int main_menu(sfRenderWindow *window, sfEvent *event, rpg_t *rpg)
             sfRenderWindow_close(window);
             return 0;
         }
-        settings_menu(all_buttons, rpg);
+        settings_menu(all_buttons, rpg, "main_menu");
         main_menu_handler(all_buttons, window);
         sfRenderWindow_display(window);
     }

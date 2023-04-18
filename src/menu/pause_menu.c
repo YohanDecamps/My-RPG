@@ -30,7 +30,7 @@ int pause_menu(rpg_t *rpg)
             return main_menu(rpg->window, rpg->event, rpg);
         draw_all(rpg);
         draw_pause_menu(all_buttons, rpg->window);
-        settings_menu(all_buttons, rpg);
+        settings_menu(all_buttons, rpg, "pause_menu");
         sfRenderWindow_display(rpg->window);
     }
     sfRenderWindow_setMouseCursorVisible(rpg->window, 0);
