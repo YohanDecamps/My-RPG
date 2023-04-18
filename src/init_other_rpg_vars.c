@@ -47,3 +47,13 @@ rpg_t *init_mouse(rpg_t *rpg)
     rpg->prev_mouse_pos.y = 540;
     return (rpg);
 }
+
+rpg_t *init_key_binds(rpg_t *rpg)
+{
+    rpg->key_binds->forward = sfKeyZ;
+    rpg->key_binds->backward = sfKeyS;
+    rpg->key_binds->left = sfKeyQ;
+    rpg->key_binds->right = sfKeyD;
+    rpg->key_binds->run = sfKeyLShift;
+    return rpg;
+}

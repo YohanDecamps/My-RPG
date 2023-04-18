@@ -10,7 +10,7 @@
 
 void draw_all_buttons(button_t **all_buttons, sfRenderWindow *window)
 {
-    for (int i = 0; i < 12; i++)
+    for (int i = 0; i < 19; i++)
         draw_button(all_buttons[i], window);
 }
 

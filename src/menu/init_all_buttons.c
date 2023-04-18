@@ -7,6 +7,26 @@
 #include "menu.h"
 #include "structures.h"
 
+static void init_settings_buttons(button_t **all_buttons)
+{
+    all_buttons[11] = init_button((sfVector2f) {570, 200}, (sfVector2f)
+    {250, 75}, "Resolution");
+    all_buttons[12] = init_button((sfVector2f) {570, 300}, (sfVector2f)
+    {250, 75}, "Sensitivity");
+    all_buttons[13] = init_button((sfVector2f) {570, 400}, (sfVector2f)
+    {250, 75}, "Move Forward");
+    all_buttons[14] = init_button((sfVector2f) {570, 500}, (sfVector2f)
+    {250, 75}, "Move Backwards");
+    all_buttons[15] = init_button((sfVector2f) {570, 600}, (sfVector2f)
+    {250, 75}, "Move Left");
+    all_buttons[16] = init_button((sfVector2f) {570, 700}, (sfVector2f)
+    {250, 75}, "Move Right");
+    all_buttons[17] = init_button((sfVector2f) {570, 800}, (sfVector2f)
+    {250, 75}, "Use");
+    all_buttons[18] = init_button((sfVector2f) {570, 900}, (sfVector2f)
+    {250, 75}, "Interact");
+}
+
 static void init_pause_menu_button(button_t **all_buttons)
 {
     all_buttons[8] = init_button((sfVector2f) {840, 300}, (sfVector2f)
@@ -39,15 +59,16 @@ static void init_main_menu_buttons(button_t **all_buttons)
 
 button_t **init_all_buttons(void)
 {
-    button_t **all_buttons = malloc(sizeof(button_t *) * 11);
+    button_t **all_buttons = malloc(sizeof(button_t *) * 19);
     if (all_buttons == NULL)
         return NULL;
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 19; i++) {
         all_buttons[i] = malloc(sizeof(button_t));
         if (all_buttons[i] == NULL)
             return NULL;
     }
     init_main_menu_buttons(all_buttons);
     init_pause_menu_button(all_buttons);
+    init_settings_buttons(all_buttons);
     return all_buttons;
 }

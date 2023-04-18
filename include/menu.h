@@ -136,9 +136,10 @@
      * @param event - sfEvent *
      * @param window - window on wich we have to update
      * @param all_buttons - list of all the buttons
+     * @param rpg - rpg_t structure
      */
     void analyse_button_events(sfEvent *event, sfRenderWindow *window,
-    button_t **all_buttons);
+    button_t **all_buttons, rpg_t *rpg);
 
     /**
      * @brief stops the music
@@ -146,5 +147,14 @@
      * @param music - music to stop
      */
     void sfMusic_stop(sfMusic *music);
+
+    /**
+     * @brief handle the settings menu
+     *
+     * @param all_buttons
+     * @param rpg
+     * @return int
+     */
+    int settings_menu(button_t **all_buttons, rpg_t *rpg);
 
 #endif /* !MAIN_MENU_H_ */

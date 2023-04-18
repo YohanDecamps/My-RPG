@@ -53,6 +53,14 @@
         char *value;
     } save_entry_t;
 
+    typedef struct movement_keys_s {
+        sfKeyCode forward;
+        sfKeyCode backward;
+        sfKeyCode left;
+        sfKeyCode right;
+        sfKeyCode run;
+    } movement_keys_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -75,6 +83,7 @@
         sfVector2f prev_mouse_pos;
         float gamma;
         float speed;
+        movement_keys_t *key_binds;
     } rpg_t;
 
 #endif /* !STRUCTURES_H_ */

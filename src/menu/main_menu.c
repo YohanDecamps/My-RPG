@@ -8,6 +8,7 @@
 #include "my_rpg.h"
 #include "structures.h"
 #include "sprites.h"
+#include "system.h"
 
 void show_saves(button_t **all_buttons, sfRenderWindow *window)
 {
@@ -24,7 +25,7 @@ void main_menu_handler(button_t **all_buttons, sfRenderWindow *window)
 }
 
 void analyse_button_events(sfEvent *event, sfRenderWindow *window,
-button_t **all_buttons)
+button_t **all_buttons, rpg_t *rpg)
 {
     if (event->type == sfEvtClosed)
         sfRenderWindow_close(window);
@@ -42,11 +43,12 @@ int main_menu(sfRenderWindow *window, sfEvent *event, rpg_t *rpg)
         sfRenderWindow_clear(window, sfBlack);
         sfRenderWindow_drawSprite(window, background, NULL);
         while (sfRenderWindow_pollEvent(window, event))
-            analyse_button_events(event, window, all_buttons);
+            analyse_button_events(event, window, all_buttons, rpg);
         if (all_buttons[7]->state == PRESSED) {
             sfRenderWindow_close(window);
             return 0;
         }
+        settings_menu(all_buttons, rpg);
         main_menu_handler(all_buttons, window);
         sfRenderWindow_display(window);
     }

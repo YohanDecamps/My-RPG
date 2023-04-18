@@ -33,5 +33,7 @@ rpg_t *init_rpg_variables(void)
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
+    rpg->key_binds = malloc(sizeof(movement_keys_t));
+    rpg = init_key_binds(rpg);
     return (rpg);
 }

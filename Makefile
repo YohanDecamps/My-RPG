@@ -25,6 +25,7 @@ SRC	=	src/main.c							\
 		src/menu/is_clicked.c 				\
 		src/menu/is_hover.c 				\
 		src/menu/main_menu.c 				\
+		src/menu/settings_menu.c 			\
 		src/menu/pause_menu.c 				\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\

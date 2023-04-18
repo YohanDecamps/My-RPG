@@ -24,12 +24,13 @@ int pause_menu(rpg_t *rpg)
     sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, sfBlack);
         while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
-            analyse_button_events(rpg->event, rpg->window, all_buttons);
+            analyse_button_events(rpg->event, rpg->window, all_buttons, rpg);
         }
         if (all_buttons[10]->state == PRESSED)
             return main_menu(rpg->window, rpg->event, rpg);
         draw_all(rpg);
         draw_pause_menu(all_buttons, rpg->window);
+        settings_menu(all_buttons, rpg);
         sfRenderWindow_display(rpg->window);
     }
     sfRenderWindow_setMouseCursorVisible(rpg->window, 0);
