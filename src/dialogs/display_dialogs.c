@@ -18,30 +18,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-static void free_dialog(dialog_t *dialog)
-{
-    sfText_destroy(dialog->name);
-    sfText_destroy(dialog->text);
-    sfClock_destroy(dialog->clock);
-    free(dialog);
-}
-
-sfSprite *init_dialog_sprite(void)
-{
-    sfSprite *dialog = sfSprite_create();
-    if (dialog == NULL)
-        return NULL;
-    sfTexture *dialog_texture =
-        sfTexture_createFromFile("assets/dialogbox.png", NULL);
-    if (dialog_texture == NULL)
-        return NULL;
-    sfSprite_setTexture(dialog, dialog_texture, sfTrue);
-    sfVector2u size = sfTexture_getSize(dialog_texture);
-    sfSprite_setPosition(dialog, (sfVector2f){0, MAXWINSIZE.y - size.y});
-    return dialog;
-}
-
-static dialog_dim_t get_window_size(sfRenderWindow *window, sfSprite *dialog)
+static dialog_dim_t get_elements_scale(sfRenderWindow *window, sfSprite *dialog)
 {
     sfVector2u size = sfRenderWindow_getSize(window);
     const sfTexture *texture = sfSprite_getTexture(dialog);
@@ -63,7 +40,7 @@ void display_dialogs(rpg_t *rpg)
     if (rpg->dialogs == NULL)
         return;
     dialog_t *current_dialog = rpg->dialogs;
-    dialog_dim_t dim = get_window_size(rpg->window, rpg->dialog);
+    dialog_dim_t dim = get_elements_scale(rpg->window, rpg->dialog);
     sfRenderWindow_drawSprite(rpg->window, rpg->dialog, NULL);
     sfText_setPosition(current_dialog->text, dim.text_pos);
     sfText_setPosition(current_dialog->name, dim.name_pos);

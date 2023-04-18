@@ -43,4 +43,18 @@
      */
     void display_dialogs(rpg_t *rpg);
 
+    /**
+     * @brief Free the dialog object
+     *
+     * @param dialog The dialog to free
+     */
+    void free_dialog(dialog_t *dialog);
+
+    /**
+     * @brief Free the dialogs
+     *
+     * @return sfSprite* The dialog bubble sprite
+     */
+    sfSprite *init_dialog_sprite(void);
+
 #endif /* !DIALOGS_H_ */

@@ -36,7 +36,9 @@ SRC	=	src/main.c							\
 		src/system/saves/freesave.c		\
 		src/system/saves/writesave.c \
 		src/dialogs/create_dialogs.c \
-		src/dialogs/display_dialogs.c
+		src/dialogs/display_dialogs.c \
+		src/dialogs/init_dialogs.c \
+		src/dialogs/free_dialogs.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 
