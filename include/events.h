@@ -26,4 +26,12 @@
      */
     void analyse_events(sfRenderWindow *window, sfEvent *event);
 
+    /**
+     * @brief Handle the events for the metal pipe,
+     * and will print it correctly
+     *
+     * @param rpg - rpg_t structure
+     */
+    void metal_pipe_handler(rpg_t *rpg);
+
 #endif /* !EVENTS_H_ */

@@ -19,6 +19,7 @@ SRC	=	src/main.c							\
 		src/init_rpg_visuals.c				\
 		src/init_other_rpg_vars.c			\
 		src/save.c							\
+		src/metal_pipe_handler.c			\
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
 		src/menu/init_all_buttons.c 		\
@@ -29,12 +30,12 @@ SRC	=	src/main.c							\
 		src/menu/pause_menu.c 				\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
-		src/menu/update_button.c \
-		src/system/saves/fetch_save.c	\
-		src/system/saves/getvalue.c		\
-		src/system/saves/setvalue.c		\
-		src/system/saves/delvalue.c		\
-		src/system/saves/freesave.c		\
+		src/menu/update_button.c 			\
+		src/system/saves/fetch_save.c		\
+		src/system/saves/getvalue.c			\
+		src/system/saves/setvalue.c			\
+		src/system/saves/delvalue.c			\
+		src/system/saves/freesave.c			\
 		src/system/saves/writesave.c
 
 TESTS_SRC = ./tests/tests_rpg.c
