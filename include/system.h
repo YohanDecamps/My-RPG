@@ -9,7 +9,7 @@
     #define SYSTEM_H
 
     #include "structures.h"
-#include <SFML/Graphics/Types.h>
+    #include <SFML/Graphics/Types.h>
 
     /**
      * @brief This function returns the value of the environment variable name,
