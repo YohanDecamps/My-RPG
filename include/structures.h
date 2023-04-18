@@ -15,6 +15,7 @@
     #include <SFML/Graphics/Vertex.h>
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System.h>
 
     typedef struct map_s {
         char **array;
@@ -75,6 +76,8 @@
         sfVector2f prev_mouse_pos;
         float gamma;
         float speed;
+        sfClock *pipe_clock;
+        int throw_speed;
     } rpg_t;
 
 #endif /* !STRUCTURES_H_ */

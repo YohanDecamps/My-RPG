@@ -33,5 +33,7 @@ rpg_t *init_rpg_variables(void)
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
+    rpg->pipe_clock = sfClock_create();
+    rpg->throw_speed = 2;
     return (rpg);
 }
