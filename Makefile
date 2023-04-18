@@ -5,20 +5,31 @@
 ## make file
 ##
 
-SRC	=	src/main.c						\
-		src/my_rpg.c					\
-		src/system/get_usr_input.c		\
-    	src/system/getenv.c				\
-		src/system/get_mouse_pos.c		\
-		src/handle_movement.c			\
-		src/draw_map.c					\
-		src/draw_ray_cast.c				\
-		src/camera_movement.c			\
-		src/display_framerate.c			\
-		src/init_rpg_values.c			\
-		src/init_rpg_visuals.c			\
-		src/init_other_rpg_vars.c		\
-		src/particle.c \
+SRC	=	src/main.c							\
+		src/my_rpg.c						\
+		src/system/get_usr_input.c			\
+    	src/system/getenv.c					\
+		src/system/get_mouse_pos.c			\
+		src/handle_movement.c				\
+		src/draw_map.c						\
+		src/draw_ray_cast.c					\
+		src/camera_movement.c				\
+		src/display_framerate.c				\
+		src/init_rpg_values.c				\
+		src/init_rpg_visuals.c				\
+		src/init_other_rpg_vars.c			\
+		src/menu/draw_all_buttons.c			\
+		src/menu/draw_button.c 				\
+		src/menu/init_all_buttons.c 		\
+		src/menu/init_button.c 				\
+		src/menu/is_clicked.c 				\
+		src/menu/is_hover.c 				\
+		src/menu/main_menu.c 				\
+		src/menu/pause_menu.c 				\
+		src/reinit_rpg_values.c				\
+		src/menu/update_all_buttons.c 		\
+		src/menu/update_button.c \
+    src/particle.c \
 		src/system/saves/fetch_save.c	\
 		src/system/saves/getvalue.c		\
 		src/system/saves/setvalue.c		\
@@ -39,7 +50,7 @@ LDFLAGS += -L./lib -lmy -lm -lcsfml-graphics -lcsfml-audio \
 
 CPPFLAGS += -I./include
 
-DEBUGFLAGS = -ggdb3 -fsanitize=address
+DEBUGFLAGS = -ggdb3
 
 all:	$(NAME)
 PHONY	+= all

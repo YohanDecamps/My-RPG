@@ -14,8 +14,9 @@
      * @brief This function manages the events
      *
      * @param rpg - rpg_t structure
+     * @return int - exit status
      */
-    void manage_event(rpg_t *rpg);
+    int manage_event(rpg_t *rpg);
 
     /**
      * @brief Registers Windows events and calls the appropriate functions
