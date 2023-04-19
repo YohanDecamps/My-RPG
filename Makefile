@@ -12,11 +12,15 @@ SRC	=	src/main.c						\
 		src/system/get_mouse_pos.c		\
 		src/handle_movement.c			\
 		src/draw_map.c					\
-		src/draw_ray_cast.c				\
 		src/camera_movement.c			\
 		src/display_framerate.c			\
 		src/init_rpg_values.c			\
 		src/init_rpg_visuals.c			\
+		src/ray_cast/draw_ray_cast.c	\
+		src/ray_cast/utils_ray_cast.c	\
+		src/ray_cast/get_hit_point.c	\
+		src/init_entity.c				\
+		src/animate_entities.c			\
 		src/init_other_rpg_vars.c
 
 TESTS_SRC = ./tests/tests_rpg.c
@@ -64,8 +68,7 @@ PHONY	+= fclean
 re:	fclean all
 PHONY	+= re
 
-run: $(OBJ) lib
-	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
+run: $(OBJ) lib all
 	./$(NAME)
 
 compile_tests: lib

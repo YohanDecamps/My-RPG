@@ -56,4 +56,12 @@
      */
     rpg_t *init_mouse(rpg_t *rpg);
 
+    /**
+     * @brief This function initializes the entity structure
+     *
+     * @param rpg - rpg_t structure
+     * @return rpg_t* - The updated rpg_t structure
+     */
+    rpg_t *init_entity(rpg_t *rpg);
+
 #endif /* !MY_H_ */

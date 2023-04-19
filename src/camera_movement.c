@@ -7,6 +7,7 @@
 
 #include "movement.h"
 #include "my_rpg.h"
+#include "raycast.h"
 
 rpg_t *camera_mouvement(rpg_t *rpg, sfVector2f prev_mouse_pos)
 {
@@ -24,5 +25,6 @@ rpg_t *camera_mouvement(rpg_t *rpg, sfVector2f prev_mouse_pos)
         rpg->slope -= (prev_mouse_pos.x - get_mouse_pos(rpg->window).x) * 0.001;
     if (get_mouse_pos(rpg->window).x < prev_mouse_pos.x)
         rpg->slope += (get_mouse_pos(rpg->window).x - prev_mouse_pos.x) * 0.001;
+    rpg->slope = reset_angle(rpg->slope);
     return (rpg);
 }
