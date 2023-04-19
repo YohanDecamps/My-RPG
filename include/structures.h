@@ -38,16 +38,6 @@
         PRESSED,
     };
 
-    typedef struct button_s {
-        sfRectangleShape *rect;
-        sfText *name;
-        sfBool (*is_clicked) (struct button_s* button, sfRenderWindow *window);
-        sfBool (*is_hover) (struct button_s* button, sfRenderWindow *window);
-        enum e_gui_state state;
-        sfFloatRect hitbox;
-        int is_toggle;
-    } button_t;
-
     typedef struct save_entry_s {
         char *name;
         char *value;
@@ -87,5 +77,17 @@
         int size_y;
         movement_keys_t *key_binds;
     } rpg_t;
+
+    typedef struct button_s {
+        sfRectangleShape *rect;
+        sfText *name;
+        sfBool (*is_clicked) (struct button_s* button,
+        sfRenderWindow *window, rpg_t *rpg);
+        sfBool (*is_hover) (struct button_s* button,
+        sfRenderWindow *window, rpg_t *rpg);
+        enum e_gui_state state;
+        sfFloatRect hitbox;
+        int is_toggle;
+    } button_t;
 
 #endif /* !STRUCTURES_H_ */

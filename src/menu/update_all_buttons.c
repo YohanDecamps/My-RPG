@@ -15,9 +15,9 @@ void set_all_button(button_t **all_buttons, enum e_gui_state new_state)
 }
 
 button_t **update_all_buttons(button_t **buttons,
-sfEvent *event, sfRenderWindow *window)
+sfEvent *event, sfRenderWindow *window, rpg_t *rpg)
 {
     for (int i = 0; i < 21; i++)
-        buttons[i] = update_button(buttons[i], event, window);
+        buttons[i] = update_button(buttons[i], event, window, rpg);
     return (buttons);
 }

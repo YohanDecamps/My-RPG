@@ -34,7 +34,8 @@ rpg_t *init_map(rpg_t *rpg)
 {
     rpg->map.array = my_str_to_word_array(get_buffer("map1.txt"), '\n');
     rpg->map.y = count_words(get_buffer("map1.txt"), '\n');
-    rpg->map_texture = sfRenderTexture_create(1920, 1080, sfFalse);
+    rpg->map_texture = sfRenderTexture_create(rpg->size_x,
+    rpg->size_y, sfFalse);
     rpg->map_sprite = sfSprite_create();
     return (rpg);
 }
@@ -42,9 +43,10 @@ rpg_t *init_map(rpg_t *rpg)
 rpg_t *init_mouse(rpg_t *rpg)
 {
     sfWindow_setMouseCursorVisible((sfWindow *) rpg->window, sfFalse);
-    sfMouse_setPosition((sfVector2i) {960, 540}, (sfWindow *) rpg->window);
-    rpg->prev_mouse_pos.x = 920;
-    rpg->prev_mouse_pos.y = 540;
+    sfMouse_setPosition((sfVector2i) {rpg->size_x / 2,
+    rpg->size_y / 2}, (sfWindow *) rpg->window);
+    rpg->prev_mouse_pos.x = (rpg->size_x / 2) * 0.958333;
+    rpg->prev_mouse_pos.y = rpg->size_y / 2;
     return (rpg);
 }
 

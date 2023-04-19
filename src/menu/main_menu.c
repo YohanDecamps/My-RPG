@@ -17,10 +17,12 @@ void show_saves(button_t **all_buttons, sfRenderWindow *window)
     draw_button(all_buttons[4], window);
 }
 
-void main_menu_handler(button_t **all_buttons, sfRenderWindow *window)
+static void main_menu_handler(button_t **all_buttons, sfRenderWindow *window,
+rpg_t *rpg)
 {
     if (all_buttons[1]->state == PRESSED)
         show_saves(all_buttons, window);
+    settings_menu(all_buttons, rpg, "main_menu");
     draw_main_menu_buttons(all_buttons, window);
 }
 
@@ -29,14 +31,14 @@ button_t **all_buttons, rpg_t *rpg)
 {
     if (event->type == sfEvtClosed)
         sfRenderWindow_close(window);
-    update_all_buttons(all_buttons, event, window);
+    update_all_buttons(all_buttons, event, window, rpg);
 }
 
 int main_menu(sfRenderWindow *window, sfEvent *event, rpg_t *rpg)
 {
     sfRenderWindow_setMouseCursorVisible(window, 1);
     sfMusic_stop(rpg->music);
-    button_t **all_buttons = init_all_buttons();
+    button_t **all_buttons = init_all_buttons(rpg);
     sfSprite *background = create_sprite("assets/shrek_background.png",
     (sfVector2f) {1.6,1.4});
     while (sfRenderWindow_isOpen(window) && all_buttons[0]->state != PRESSED) {
@@ -48,8 +50,7 @@ int main_menu(sfRenderWindow *window, sfEvent *event, rpg_t *rpg)
             sfRenderWindow_close(window);
             return 0;
         }
-        settings_menu(all_buttons, rpg, "main_menu");
-        main_menu_handler(all_buttons, window);
+        main_menu_handler(all_buttons, window, rpg);
         sfRenderWindow_display(window);
     }
     set_all_button(all_buttons, NONE);

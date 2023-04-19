@@ -25,11 +25,12 @@ void draw_all(rpg_t *rpg)
     (sfVector2f) {0, rpg->y_offset});
     sfRenderWindow_drawRectangleShape(rpg->window, rpg->floor, NULL);
     rpg = draw_all_ray_casts(rpg);
-    rpg->prev_mouse_pos = get_mouse_pos(rpg->window);
+    rpg->prev_mouse_pos = get_mouse_pos(rpg->window, rpg->size_x, rpg->size_y);
     if (sfKeyboard_isKeyPressed(sfKeyM) ||
     sfKeyboard_isKeyPressed(sfKeyTab))
         draw_map(rpg);
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
+    display_framerate(rpg);
 }
 
 int myrpg(void)
@@ -51,7 +52,6 @@ int myrpg(void)
         sfMouse_setPosition((sfVector2i) {rpg->size_x / 2, rpg->size_y / 2},
         (sfWindow *) rpg->window);
         draw_all(rpg);
-        display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
     return (0);

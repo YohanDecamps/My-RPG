@@ -32,11 +32,16 @@ void set_settings_button(int state, button_t **all_buttons)
     all_buttons[18]->state = state;
 }
 
-sfKeyCode assign_key(rpg_t *rpg, button_t *button)
+int resolution_menu_little_window(button_t **buttons, rpg_t *rpg, char *menu)
 {
-    sfRenderWindow_waitEvent(rpg->window, rpg->event);
-    button->state = NONE;
-    return rpg->event->key.code;
+    sfRenderWindow_close(rpg->window);
+    rpg->window = create_window("RPG", 690, 420);
+    rpg->size_x = 690;
+    rpg->size_y = 420;
+    buttons[20]->state = NONE;
+    if (my_strcmp(menu, "main_menu") == 0)
+        return main_menu(rpg->window, rpg->event, rpg);
+    return pause_menu(rpg);
 }
 
 int resolution_menu (button_t **all_button, rpg_t *rpg, char *menu)
@@ -53,17 +58,9 @@ int resolution_menu (button_t **all_button, rpg_t *rpg, char *menu)
             return main_menu(rpg->window, rpg->event, rpg);
         return pause_menu(rpg);
     }
-    if (all_button[20]->state == PRESSED) {
-        sfRenderWindow_close(rpg->window);
-        rpg->window = create_window("RPG", 690, 420);
-        rpg->size_x = 690;
-        rpg->size_y = 420;
-        all_button[20]->state = NONE;
-        if (my_strcmp(menu, "main_menu") == 0)
-            return main_menu(rpg->window, rpg->event, rpg);
-        return pause_menu(rpg);
-    }
-    return 0;
+    if (all_button[20]->state == PRESSED)
+        return resolution_menu_little_window(all_button, rpg, menu);
+    return 1;
 }
 
 int settings_menu(button_t **all_buttons, rpg_t *rpg, char *menu)
@@ -73,14 +70,15 @@ int settings_menu(button_t **all_buttons, rpg_t *rpg, char *menu)
     if (all_buttons[5]->state == NONE)
         set_settings_button(NONE, all_buttons);
     if (all_buttons[13]->state == PRESSED)
-        rpg->key_binds->forward = assign_key(rpg, all_buttons[13]);
+        rpg->key_binds->forward = keybind(rpg, all_buttons[13]);
     if (all_buttons[14]->state == PRESSED)
-        rpg->key_binds->backward = assign_key(rpg, all_buttons[14]);
+        rpg->key_binds->backward = keybind(rpg, all_buttons[14]);
     if (all_buttons[15]->state == PRESSED)
-        rpg->key_binds->left = assign_key(rpg, all_buttons[15]);
+        rpg->key_binds->left = keybind(rpg, all_buttons[15]);
     if (all_buttons[16]->state == PRESSED)
-        rpg->key_binds->right = assign_key(rpg, all_buttons[16]);
-    if (all_buttons[11]->state == PRESSED)
-        resolution_menu(all_buttons, rpg, menu);
+        rpg->key_binds->right = keybind(rpg, all_buttons[16]);
+    if (all_buttons[11]->state == PRESSED &&
+    resolution_menu(all_buttons, rpg, menu) != 1)
+        all_buttons[8]->state = PRESSED;
     return 0;
 }

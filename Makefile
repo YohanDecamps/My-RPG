@@ -27,14 +27,15 @@ SRC	=	src/main.c							\
 		src/menu/main_menu.c 				\
 		src/menu/settings_menu.c 			\
 		src/menu/pause_menu.c 				\
+		src/menu/assign_keybind.c			\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
-		src/menu/update_button.c \
-		src/system/saves/fetch_save.c	\
-		src/system/saves/getvalue.c		\
-		src/system/saves/setvalue.c		\
-		src/system/saves/delvalue.c		\
-		src/system/saves/freesave.c		\
+		src/menu/update_button.c			\
+		src/system/saves/fetch_save.c		\
+		src/system/saves/getvalue.c			\
+		src/system/saves/setvalue.c			\
+		src/system/saves/delvalue.c			\
+		src/system/saves/freesave.c			\
 		src/system/saves/writesave.c
 
 TESTS_SRC = ./tests/tests_rpg.c

@@ -20,18 +20,23 @@
      *
      * @param button - button_t structure
      * @param window - sfRenderWindow *
+     * @param rpg - rpg_t structure
+     *
      * @return sfBool - sfTRue ou sfFalse
      */
-    sfBool is_hover(struct button_s* button, sfRenderWindow *window);
+    sfBool is_hover(struct button_s* button,
+    sfRenderWindow *window, rpg_t *rpg);
 
     /**
      * @brief this funtion returns sfTrue if the button is cliked
      *
      * @param button - button_t structure
      * @param window - sfRenderWidow *
+     * @param rpg - rpg_t structure
      * @return sfBool - sfTrue or sfFalse
      */
-    sfBool is_clicked(struct button_s* button, sfRenderWindow *window);
+    sfBool is_clicked(struct button_s* button,
+    sfRenderWindow *window, rpg_t *rpg);
 
     /**
      * @brief initialises a new button_t stucture
@@ -60,7 +65,7 @@
      * @return struct button_s*
      */
     struct button_s *update_button(struct button_s *button, sfEvent *event,
-    sfRenderWindow *window);
+    sfRenderWindow *window, rpg_t *rpg);
 
     /**
      * @brief this function draws all the buttons
@@ -73,9 +78,10 @@
     /**
      * @brief this fucntions initialises all the buttons needeed for the menus
      *
+     * @param rpg - rpg_t structure
      * @return button_t** list of all the buttons
      */
-    button_t **init_all_buttons(void);
+    button_t **init_all_buttons(rpg_t *rpg);
 
     /**
      * @brief this fuction displays, handle and update the main menu
@@ -96,7 +102,7 @@
      * @return button_t** updated list of all the buttons
      */
     button_t **update_all_buttons(button_t **buttons, sfEvent *event,
-    sfRenderWindow *window);
+    sfRenderWindow *window, rpg_t *rpg);
 
     /**
      * @brief draws all the button consisting in the main menu
@@ -157,5 +163,14 @@
      * @return int
      */
     int settings_menu(button_t **all_buttons, rpg_t *rpg, char *menu);
+
+    /**
+     * @brief assign a key to a specific action
+     *
+     * @param rpg - rpg_t structure
+     * @param button - button structure - tells wich action will be binded
+     * @return sfKeyCode
+     */
+    int keybind(rpg_t *rpg, button_t *button);
 
 #endif /* !MAIN_MENU_H_ */

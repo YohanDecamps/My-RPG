@@ -18,7 +18,7 @@ void draw_pause_menu(button_t **all_buttons, sfRenderWindow *window)
 
 int pause_menu(rpg_t *rpg)
 {
-    button_t **all_buttons = init_all_buttons();
+    button_t **all_buttons = init_all_buttons(rpg);
     sfRenderWindow_setMouseCursorVisible(rpg->window, 1);
     while (all_buttons[8]->state != PRESSED &&
     sfRenderWindow_isOpen(rpg->window)) {

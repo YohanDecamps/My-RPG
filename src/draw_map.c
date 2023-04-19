@@ -41,7 +41,8 @@ void draw_map(rpg_t *rpg)
     sfRenderTexture_drawCircleShape(rpg->map_texture, rpg->player_circle, NULL);
     sfSprite_setTexture(rpg->map_sprite,
     sfRenderTexture_getTexture(rpg->map_texture), sfTrue);
-    sfSprite_setTextureRect(rpg->map_sprite, (sfIntRect) {0, 1080, 300, -300});
+    sfSprite_setTextureRect(rpg->map_sprite, (sfIntRect)
+    {0, rpg->size_y, 300, -300});
     sfSprite_setRotation(rpg->map_sprite, -rpg->slope * (180 / pi) - 90);
     sfSprite_setOrigin(rpg->map_sprite, (sfVector2f) {150, 150});
     sfSprite_setPosition(rpg->map_sprite, (sfVector2f) {150, 150});

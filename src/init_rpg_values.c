@@ -25,6 +25,8 @@ rpg_t *init_all_values(rpg_t *rpg)
 rpg_t *init_rpg_variables(void)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));
+    rpg->size_x = 1920;
+    rpg->size_y = 1080;
     rpg = init_all_values(rpg);
     rpg->window = create_window("RPG", 1920, 1080);
     rpg = init_mouse(rpg);
@@ -33,8 +35,6 @@ rpg_t *init_rpg_variables(void)
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
-    rpg->size_x = 1920;
-    rpg->size_y = 1080;
     rpg->key_binds = malloc(sizeof(movement_keys_t));
     rpg = init_key_binds(rpg);
     return (rpg);
