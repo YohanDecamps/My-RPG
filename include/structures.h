@@ -14,7 +14,11 @@
     #include <SFML/Graphics/Types.h>
     #include <SFML/Graphics/Vertex.h>
     #include <SFML/Graphics/Sprite.h>
+#include <SFML/System/Vector2.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System/Clock.h>
+
+    #define MAXWINSIZE (sfVector2u) {1920, 1080}
 
     // gravity suggested value = {0, 6000}
     // medium_speed suggested value = 40000
@@ -72,6 +76,21 @@
         char *value;
     } save_entry_t;
 
+    typedef struct dialog_s {
+        sfText *name;
+        sfText *text;
+        sfClock *clock;
+        int time;
+        struct dialog_s *next;
+    } dialog_t;
+
+    typedef struct dialog_dim_s {
+        sfVector2f dialog_pos;
+        sfVector2f name_pos;
+        sfVector2f text_pos;
+        sfVector2f scale;
+    } dialog_dim_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -92,6 +111,8 @@
         sfMusic *metal_pipe_sound;
         sfMusic *music;
         sfVector2f prev_mouse_pos;
+        sfSprite *dialog;
+        dialog_t *dialogs;
         float gamma;
         float speed;
     } rpg_t;
