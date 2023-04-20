@@ -28,7 +28,9 @@ rpg_t *init_entity(rpg_t *rpg)
     sfSprite_setOrigin(rpg->entity[0].sprite, (sfVector2f)
     {rpg->entity[0].size.x * 0.5, rpg->entity[0].size.y * 0.5});
     sfSprite_setPosition(rpg->entity[0].sprite, (sfVector2f) {10000, 540});
-    rpg->entity[0].pos = (sfVector2f) {175, 175};
+    rpg->entity[0].pos = (sfVector2f) {0, 0};
+    rpg->entity[0].pos.x = rpg->maps[rpg->level]->meta[4] * 50;
+    rpg->entity[0].pos.y = rpg->maps[rpg->level]->meta[5] * 50;
     rpg->entity[0].pv = 100;
     return (rpg);
 }
