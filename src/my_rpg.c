@@ -53,5 +53,6 @@ int myrpg(void)
         display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
+    freemem(rpg);
     return (0);
 }

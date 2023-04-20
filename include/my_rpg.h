@@ -82,4 +82,11 @@
      */
     int switch_level(rpg_t *rpg, int level);
 
+    /**
+     * @brief This function frees the memory allocated for the rpg_t structure
+     *
+     * @param rpg - rpg_t structure
+     */
+    void freemem(rpg_t *rpg);
+
 #endif /* !MY_H_ */

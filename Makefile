@@ -36,7 +36,8 @@ SRC	=	src/main.c							\
 		src/system/saves/delvalue.c		\
 		src/system/saves/freesave.c		\
 		src/system/saves/writesave.c \
-		src/switch_level.c
+		src/switch_level.c \
+		src/freemem.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 
