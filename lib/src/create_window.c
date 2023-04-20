@@ -6,11 +6,12 @@
 */
 
 #include "../include/lib.h"
+#include <SFML/Window/Window.h>
 
-sfRenderWindow* create_window(char *name)
+sfRenderWindow* create_window(char *name, int size_x, int size_y)
 {
     sfRenderWindow* window;
-    window = sfRenderWindow_create((sfVideoMode) {1920, 1080, 32},
+    window = sfRenderWindow_create((sfVideoMode) {size_x, size_y, 32},
     name, sfResize | sfClose, NULL);
     sfRenderWindow_setMouseCursorVisible(window, 1);
     sfRenderWindow_setFramerateLimit(window, 60);

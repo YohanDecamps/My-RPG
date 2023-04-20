@@ -10,6 +10,8 @@
 #include "lib.h"
 #include "my_rpg.h"
 #include "structures.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 int manage_event(rpg_t *rpg)
 {
@@ -30,20 +32,44 @@ rpg_t *init_sounds(rpg_t *rpg)
     return (rpg);
 }
 
-rpg_t *init_map(rpg_t *rpg)
+static map_t *fetch_map(rpg_t *rpg, char *map_name)
 {
-    rpg->map.array = my_str_to_word_array(get_buffer("map1.txt"), '\n');
-    rpg->map.y = count_words(get_buffer("map1.txt"), '\n');
-    rpg->map_texture = sfRenderTexture_create(1920, 1080, sfFalse);
-    rpg->map_sprite = sfSprite_create();
-    return (rpg);
+    char *buffer = get_buffer(map_name);
+    map_t *map = malloc(sizeof(map_t));
+    if (buffer == NULL || map == NULL)
+        return NULL;
+    map->fcontent = my_str_to_word_array(get_buffer(map_name), '\n');
+    map->array = &map->fcontent[1];
+    char **meta = my_str_to_word_array(map->fcontent[0], ';');
+    map->meta = str_array_to_int(meta);
+    map->y = count_words(get_buffer(map_name), '\n') - 1;
+    free(buffer);
+    for (int i = 0; i < 4; i++)
+        free(meta[i]);
+    free(meta);
+    return map;
 }
 
-rpg_t *init_mouse(rpg_t *rpg)
+rpg_t *init_maps(rpg_t *rpg)
 {
-    sfWindow_setMouseCursorVisible((sfWindow *) rpg->window, sfFalse);
-    sfMouse_setPosition((sfVector2i) {960, 540}, (sfWindow *) rpg->window);
-    rpg->prev_mouse_pos.x = 920;
-    rpg->prev_mouse_pos.y = 540;
-    return (rpg);
+    rpg->map_sprite = sfSprite_create();
+    rpg->map_texture = sfRenderTexture_create(rpg->size_x,
+    rpg->size_y, sfFalse);
+    rpg->maps = malloc(sizeof(map_t *) * (MAPS_COUNT + 1));
+    rpg->maps[0] = fetch_map(rpg, "assets/maps/map1.txt");
+    rpg->maps[1] = fetch_map(rpg, "assets/maps/map2.txt");
+    rpg->maps[2] = fetch_map(rpg, "assets/maps/map3.txt");
+    rpg->maps[3] = fetch_map(rpg, "assets/maps/map4.txt");
+    rpg->maps[MAPS_COUNT] = NULL;
+    return rpg;
+}
+
+rpg_t *init_key_binds(rpg_t *rpg)
+{
+    rpg->key_binds->forward = sfKeyZ;
+    rpg->key_binds->backward = sfKeyS;
+    rpg->key_binds->left = sfKeyQ;
+    rpg->key_binds->right = sfKeyD;
+    rpg->key_binds->run = sfKeyLShift;
+    return rpg;
 }
