@@ -63,7 +63,6 @@ rpg_t *init_rpg_variables(void)
     rpg->window = create_window("RPG", 1920, 1080);
     rpg = init_mouse(rpg);
     rpg->event = malloc(sizeof(sfEvent));
-    rpg = init_maps(rpg);
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
