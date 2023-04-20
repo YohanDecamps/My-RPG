@@ -88,7 +88,7 @@
      * @param rpg - rpg_t structure
      */
     void freemem(rpg_t *rpg);
-    
+
     /**
      * @brief This function init default key binds
      *

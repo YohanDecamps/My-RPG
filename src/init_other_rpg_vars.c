@@ -64,16 +64,6 @@ rpg_t *init_maps(rpg_t *rpg)
     return rpg;
 }
 
-rpg_t *init_mouse(rpg_t *rpg)
-{
-    sfWindow_setMouseCursorVisible((sfWindow *) rpg->window, sfFalse);
-    sfMouse_setPosition((sfVector2i) {rpg->size_x / 2,
-    rpg->size_y / 2}, (sfWindow *) rpg->window);
-    rpg->prev_mouse_pos.x = (rpg->size_x / 2) * 0.958333;
-    rpg->prev_mouse_pos.y = rpg->size_y / 2;
-    return (rpg);
-}
-
 rpg_t *init_key_binds(rpg_t *rpg)
 {
     rpg->key_binds->forward = sfKeyZ;
