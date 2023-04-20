@@ -53,8 +53,8 @@ void set_entity_pos(rpg_t *rpg)
     float distance = sqrt(pow(rpg->player_pos.x - rpg->entity[0].pos.x, 2) +
     pow(rpg->player_pos.y - rpg->entity[0].pos.y, 2));
     sfSprite_setScale(rpg->entity[0].sprite,
-    (sfVector2f) {(float) ((150 * 1080) / distance)
-    / 512, (float) ((150 * 1080) / distance) / 512});
+    (sfVector2f) {(float) ((150 * rpg->size_y) / distance)
+    / 512, (float) ((150 * rpg->size_y) / distance) / 512});
 }
 
 void loop(rpg_t *rpg)

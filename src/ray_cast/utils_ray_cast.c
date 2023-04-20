@@ -54,15 +54,15 @@ void change_entity_position(rpg_t *rpg, int nb, ray_cast_t *rc)
         shades = 255;
     sfSprite_setColor(rpg->entity[0].sprite, (sfColor)
     {255 - shades, 255 - shades, 255 - shades, 255});
-    if (angle > rpg->slope && angle < rpg->slope + 0.0005)
+    if (angle > rpg->slope && angle < rpg->slope + (0.0005 * (1080 / rpg->size_y)))
         sfSprite_setPosition(rpg->entity[0].sprite, (sfVector2f)
-        {960 + nb, rpg->y_offset});
-    if (rpg->clone_slope + -960 * 0.0005 > angle
-    || rpg->clone_slope + 960 * 0.0005 < angle || rpg->entity[0].pv <= 0)
+        {(rpg->size_x / 2) + nb, rpg->y_offset});
+    if (rpg->clone_slope + -(rpg->size_x / 2) * (0.0005 * (1080 / rpg->size_y)) > angle
+    || rpg->clone_slope + (rpg->size_x / 2) * (0.0005 * (1080 / rpg->size_y)) < angle || rpg->entity[0].pv <= 0)
         sfSprite_setPosition(rpg->entity[0].sprite,
         (sfVector2f) {10000 + nb, rpg->y_offset});
-    if (((rc->x_offset + 1) / 1920) >= rpg->entity[0].slope
-    && ((rc->x_offset - 1) / 1920) < rpg->entity[0].slope)
+    if (((rc->x_offset + 1) / rpg->size_x) >= rpg->entity[0].slope
+    && ((rc->x_offset - 1) / rpg->size_x) < rpg->entity[0].slope)
         sfSprite_setPosition(rpg->entity[0].sprite,
-        (sfVector2f) {960 + rc->x_offset, rpg->y_offset});
+        (sfVector2f) {(rpg->size_x / 2) + rc->x_offset, rpg->y_offset});
 }
