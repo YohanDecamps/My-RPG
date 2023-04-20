@@ -21,7 +21,7 @@ SRC	=	src/main.c						\
 		src/ray_cast/get_hit_point.c	\
 		src/init_entity.c				\
 		src/animate_entities.c			\
-		src/init_other_rpg_vars.c
+		src/init_other_rpg_vars.c \
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
 		src/menu/init_all_buttons.c 		\
@@ -33,7 +33,7 @@ SRC	=	src/main.c						\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
 		src/menu/update_button.c \
-    src/particle.c \
+		src/particle.c \
 		src/system/saves/fetch_save.c	\
 		src/system/saves/getvalue.c		\
 		src/system/saves/setvalue.c		\

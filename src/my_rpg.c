@@ -56,11 +56,7 @@ void set_entity_pos(rpg_t *rpg)
     / 512, (float) ((150 * 1080) / distance) / 512});
 }
 
-int myrpg(void)
-{
-    rpg_t *rpg = init_rpg_variables();
-    main_menu(rpg->window, rpg->event, rpg);
-    sfMusic_play(rpg->music);
+void loop(rpg_t *rpg) {
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
@@ -79,5 +75,13 @@ int myrpg(void)
         display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
+}
+
+int myrpg(void)
+{
+    rpg_t *rpg = init_rpg_variables();
+    main_menu(rpg->window, rpg->event, rpg);
+    sfMusic_play(rpg->music);
+    loop(rpg);
     return (0);
 }
