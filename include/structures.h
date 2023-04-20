@@ -17,6 +17,7 @@
     #include <SFML/System/Vector2.h>
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System.h>
     #include <SFML/System/Clock.h>
 
     #define MAXWINSIZE (sfVector2u) {\
@@ -108,6 +109,13 @@
         sfVector2f scale;
     } dialog_dim_t;
 
+    typedef struct inventory_s {
+        char *obj_name;
+        int possesed;
+        sfSprite *obj_sprite;
+        struct inventory_s *next;
+    } inventory_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -135,11 +143,15 @@
         dialog_t *dialogs;
         float gamma;
         float speed;
+        sfClock *pipe_clock;
+        int throw_speed;
         int size_x;
         int size_y;
         sfText *how_to_play_text;
         sfRenderTexture *how_to_play_back;
         movement_keys_t *key_binds;
+        sfSprite *inventory_back;
+        inventory_t *inventory;
     } rpg_t;
 
     typedef struct button_s {

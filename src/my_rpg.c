@@ -23,6 +23,7 @@
 #include <SFML/Graphics/RectangleShape.h>
 #include <SFML/Graphics/RenderTexture.h>
 #include <SFML/Graphics/RenderWindow.h>
+#include <stdio.h>
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Types.h>
 #include <SFML/Graphics/VertexArray.h>
@@ -42,8 +43,10 @@ void draw_all(rpg_t *rpg)
     rpg->prev_mouse_pos = get_mouse_pos(rpg->window, rpg->size_x, rpg->size_y);
     sfRenderWindow_drawSprite(rpg->window, rpg->entity[0].sprite, NULL);
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
-    if (sfKeyboard_isKeyPressed(sfKeyM) || sfKeyboard_isKeyPressed(sfKeyTab))
+    if (sfKeyboard_isKeyPressed(sfKeyM))
         draw_map(rpg);
+    if (sfKeyboard_isKeyPressed(sfKeyTab))
+        inventory(rpg);
     display_framerate(rpg);
     display_dialogs(rpg);
 }
@@ -62,8 +65,7 @@ void loop(rpg_t *rpg)
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
-        if (manage_event(rpg) == 1)
-            return;
+        if (manage_event(rpg) == 1) return;
         rpg = handle_player_pos(rpg);
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_stop(rpg->metal_pipe_sound);
@@ -76,6 +78,8 @@ void loop(rpg_t *rpg)
         sfMouse_setPosition((sfVector2i) {rpg->size_x / 2, rpg->size_y / 2},
         (sfWindow *) rpg->window);
         draw_all(rpg);
+        metal_pipe_handler(rpg);
+        display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
 }
