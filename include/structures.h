@@ -13,8 +13,13 @@
     #include <SFML/Graphics/Color.h>
     #include <SFML/Graphics/Types.h>
     #include <SFML/Graphics/Vertex.h>
+    #include <SFML/System/Types.h>
+    #include <SFML/System/Vector2.h>
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System/Clock.h>
+
+    #define MAXWINSIZE (sfVector2u) {1920, 1080}
 
     // gravity suggested value = {0, 6000}
     // medium_speed suggested value = 40000
@@ -50,8 +55,16 @@
     typedef struct ray_cast_s {
         int x_offset;
         float distance;
-        sfVertex hit_point;
+        sfVector2f hit_point;
     } ray_cast_t;
+
+    typedef struct entity_s {
+        sfCircleShape *circle;
+        sfVector2f pos;
+        sfSprite *sprite;
+        sfVector2f size;
+        float slope;
+    } entity_t;
 
     enum e_gui_state {
         NONE = 0,
@@ -74,6 +87,21 @@
         char *value;
     } save_entry_t;
 
+    typedef struct dialog_s {
+        sfText *name;
+        sfText *text;
+        sfClock *clock;
+        int time;
+        struct dialog_s *next;
+    } dialog_t;
+
+    typedef struct dialog_dim_s {
+        sfVector2f dialog_pos;
+        sfVector2f name_pos;
+        sfVector2f text_pos;
+        sfVector2f scale;
+    } dialog_dim_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -81,11 +109,13 @@
         sfRectangleShape *rect;
         float y_offset;
         float slope;
+        sfClock *animatinons_clock;
         sfVector2f player_pos;
         sfColor ray_color;
         float clone_slope;
         sfCircleShape *player_circle;
         sprite_t *sprite;
+        entity_t *entity;
         char *sprite_str;
         sfRenderTexture *map_texture;
         sfSprite *map_sprite;
@@ -95,8 +125,15 @@
         sfMusic *music;
         sfVector2f prev_mouse_pos;
         int level;
+        sfSprite *dialog;
+        dialog_t *dialogs;
         float gamma;
         float speed;
     } rpg_t;
+
+    #define NORTH 4.712388980384
+    #define EAST 0
+    #define WEST 3.14159265359;
+    #define SOUTH 1.57079632679;
 
 #endif /* !STRUCTURES_H_ */
