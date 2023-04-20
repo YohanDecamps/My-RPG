@@ -68,6 +68,7 @@ void loop(rpg_t *rpg)
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_stop(rpg->metal_pipe_sound);
             sfMusic_play(rpg->metal_pipe_sound);
+            entity_is_hit(rpg);
         }
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
         animate_entities(rpg);
