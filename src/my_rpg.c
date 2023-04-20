@@ -56,7 +56,8 @@ void set_entity_pos(rpg_t *rpg)
     / 512, (float) ((150 * 1080) / distance) / 512});
 }
 
-void loop(rpg_t *rpg) {
+void loop(rpg_t *rpg)
+{
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);

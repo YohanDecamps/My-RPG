@@ -64,6 +64,7 @@
      */
     rpg_t *init_entity(rpg_t *rpg);
 
+    /**
      * @brief This function draw all the game elements
      *
      * @param rpg - rpg_t structure
