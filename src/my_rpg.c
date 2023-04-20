@@ -60,6 +60,15 @@ void set_entity_pos(rpg_t *rpg)
     / 512, (float) ((150 * rpg->size_y) / distance) / 512});
 }
 
+void button_handler(rpg_t *rpg)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft)) {
+        sfMusic_stop(rpg->metal_pipe_sound);
+        sfMusic_play(rpg->metal_pipe_sound);
+        entity_is_hit(rpg);
+    }
+}
+
 void loop(rpg_t *rpg)
 {
     while (sfRenderWindow_isOpen(rpg->window)) {
@@ -67,11 +76,7 @@ void loop(rpg_t *rpg)
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
         if (manage_event(rpg) == 1) return;
         rpg = handle_player_pos(rpg);
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfMusic_stop(rpg->metal_pipe_sound);
-            sfMusic_play(rpg->metal_pipe_sound);
-            entity_is_hit(rpg);
-        }
+        button_handler(rpg);
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
         animate_entities(rpg);
         set_entity_pos(rpg);
