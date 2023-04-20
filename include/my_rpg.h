@@ -72,4 +72,48 @@
     */
     rpg_t *reinit_rpg_values(rpg_t *rpg);
 
+    /**
+     * @brief this function copy a char **
+     * 
+     * @param original the char ** that need to be copied
+     * @param length the length of the char **
+     * @return char** 
+     */
+    char **copy_char_array(char** original, int length);
+
+    /**
+     * @brief this function free a char **
+     * 
+     * @param map the char ** that need to be freed
+     * @param y the lenght of the char **
+    */
+    void free_map(int y, int **map);
+
+    /**
+     * @brief add the node in x, y to the queu
+     * 
+     * @param x the coordinate of the node to be added to queue
+     * @param y the coordinate of the node to be added to queue
+     * @param head the head of the queue
+    */
+    queu_t *add_to_queu (const int x, const int y, queu_t *head,
+    char *instruction);
+
+    /**
+     * @brief switch current node to current->next
+     * 
+     * @param queu the current node that need to be switched
+     * @return queu_t* 
+    */
+    queu_t * next_in_queu(queu_t * queu);
+
+    /**
+     * @brief add the next node that need to be visited to the queue
+     * 
+     * @param queu the current node to current->next
+     * @param map the map
+     * @return queu_t*
+    */
+    queu_t * get_next_visit(queu_t *queu, char **map);
+
 #endif /* !MY_H_ */

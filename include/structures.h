@@ -77,4 +77,11 @@
         float speed;
     } rpg_t;
 
+    typedef struct queu {
+        int x;
+        int y;
+        struct queu * next;
+        char *instruction;
+    } queu_t;
+
 #endif /* !STRUCTURES_H_ */
