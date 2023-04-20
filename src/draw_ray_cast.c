@@ -34,7 +34,7 @@ void draw_ray_sprite(rpg_t *rpg, ray_cast_t *rc, int i)
 {
     sfSprite *sprite = rpg->sprite[(int) rpg->sprite_str[i]].ray_sprite;
     char id = rpg->sprite_str[i];
-    if (rpg->map.array[(int) rc->hit_point.position.y / 50]
+    if (rpg->maps[rpg->level]->array[(int) rc->hit_point.position.y / 50]
     [(int) rc->hit_point.position.x / 50] == id) {
         float xprd = rc->hit_point.position.x / 50 -
         (int) (rc->hit_point.position.x / 50);
@@ -60,7 +60,7 @@ void draw_ray_cast(rpg_t *rpg, int nb)
     sfVertex point;
     point.position = (sfVector2f) {rpg->player_pos.x + cos(rpg->slope) * 1,
     rpg->player_pos.y + sin(rpg->slope) * 1};
-    for (; rpg->map.array[(int) point.position.y / 50]
+    for (; rpg->maps[rpg->level]->array[(int) point.position.y / 50]
     [(int) point.position.x / 50] == ' '; distance = distance + 1)
         point.position = (sfVector2f) {rpg->player_pos.x + cos(rpg->slope)
         * distance, rpg->player_pos.y + sin(rpg->slope) * distance};

@@ -14,8 +14,9 @@
 rpg_t *init_all_values(rpg_t *rpg)
 {
     rpg->slope = 2 * pi;
-    rpg->player_pos.x = 75;
-    rpg->player_pos.y = 275;
+    rpg->player_pos.x = 0;
+    rpg->player_pos.y = 0;
+    rpg->level = 0;
     rpg->gamma = 600;
     rpg->y_offset = 540;
     rpg->speed = 4;
@@ -29,7 +30,7 @@ rpg_t *init_rpg_variables(void)
     rpg->window = create_window("RPG");
     rpg = init_mouse(rpg);
     rpg->event = malloc(sizeof(sfEvent));
-    rpg = init_map(rpg);
+    rpg = init_maps(rpg);
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);

@@ -29,13 +29,14 @@ SRC	=	src/main.c							\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
 		src/menu/update_button.c \
-    src/particle.c \
+		src/particle.c \
 		src/system/saves/fetch_save.c	\
 		src/system/saves/getvalue.c		\
 		src/system/saves/setvalue.c		\
 		src/system/saves/delvalue.c		\
 		src/system/saves/freesave.c		\
-		src/system/saves/writesave.c
+		src/system/saves/writesave.c \
+		src/switch_level.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 
@@ -50,7 +51,7 @@ LDFLAGS += -L./lib -lmy -lm -lcsfml-graphics -lcsfml-audio \
 
 CPPFLAGS += -I./include
 
-DEBUGFLAGS = -ggdb3
+DEBUGFLAGS = -ggdb3 -fsanitize=address
 
 all:	$(NAME)
 PHONY	+= all
