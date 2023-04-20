@@ -19,7 +19,9 @@
     #include <SFML/Window/Event.h>
     #include <SFML/System/Clock.h>
 
-    #define MAXWINSIZE (sfVector2u) {1920, 1080}
+    #define MAXWINSIZE (sfVector2u) {\
+    1920, 1080\
+    }
 
     #define NORTH 4.712388980384
     #define EAST 0
@@ -131,6 +133,8 @@
         float speed;
         int size_x;
         int size_y;
+        sfText *how_to_play_text;
+        sfRenderTexture *how_to_play_back;
         movement_keys_t *key_binds;
     } rpg_t;
 
