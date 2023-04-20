@@ -77,6 +77,7 @@ void loop(rpg_t *rpg)
         set_entity_pos(rpg);
         sfMouse_setPosition((sfVector2i) {rpg->size_x / 2, rpg->size_y / 2},
         (sfWindow *) rpg->window);
+        move_shrek(rpg);
         draw_all(rpg);
         metal_pipe_handler(rpg);
         display_framerate(rpg);

@@ -45,13 +45,17 @@ SRC	=	src/main.c						\
 		src/system/saves/setvalue.c			\
 		src/system/saves/delvalue.c			\
 		src/system/saves/freesave.c			\
-		src/system/saves/writesave.c		\
-		src/switch_level.c 					\
-		src/freemem.c 						\
-		src/dialogs/create_dialogs.c 		\
-		src/dialogs/display_dialogs.c 		\
-		src/dialogs/init_dialogs.c 			\
-		src/dialogs/free_dialogs.c
+		src/system/saves/writesave.c \
+		src/switch_level.c \
+		src/freemem.c \
+		src/shrek_movement.c \
+		src/pathfinding.c \
+		src/dialogs/create_dialogs.c \
+		src/dialogs/display_dialogs.c \
+		src/dialogs/init_dialogs.c \
+		src/dialogs/free_dialogs.c	\
+		src/utils.c	\
+		src/handle_queu.c
 
 TESTS_SRC = ./tests/tests_rpg.c
 
