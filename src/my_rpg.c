@@ -22,6 +22,7 @@
 #include <SFML/Graphics/Rect.h>
 #include <SFML/Graphics/RectangleShape.h>
 #include <SFML/Graphics/RenderTexture.h>
+#include <stdio.h>
 #include <SFML/Graphics/RenderWindow.h>
 #include <stdio.h>
 #include <SFML/Graphics/Sprite.h>

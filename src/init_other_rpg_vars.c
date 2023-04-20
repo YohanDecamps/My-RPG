@@ -16,9 +16,8 @@
 int manage_event(rpg_t *rpg)
 {
     while (sfRenderWindow_pollEvent(rpg->window, rpg->event)) {
-        if (sfKeyboard_isKeyPressed(sfKeyEscape) && pause_menu(rpg) == 1) {
+        if (sfKeyboard_isKeyPressed(sfKeyEscape) && pause_menu(rpg) == 1)
             return pause_menu(rpg);
-        }
         analyse_events(rpg->window, rpg->event);
     }
     return 2;

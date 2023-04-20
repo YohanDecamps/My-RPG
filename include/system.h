@@ -85,4 +85,12 @@
      */
     void save (rpg_t *rpg);
 
+    /**
+     * @brief This function loads the nessesary saved information
+     *        into the rpg struct
+     *
+     * @param rpg - the rpg struct, where the information to load is stored
+     */
+    void load (rpg_t *rpg);
+
 #endif /* !SYSTEM_H */

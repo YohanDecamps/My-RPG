@@ -43,8 +43,8 @@ save_entry_t **fetch_save(char *filename)
 {
     if (filename == NULL) return NULL;
     int size = get_save_size(filename);
+    if (size == -1) return NULL;
     save_entry_t **save = malloc(sizeof(save_entry_t*) * (size + 1));
-    if (save == NULL) return NULL;
     FILE *file = fopen(filename, "r");
     char *line = NULL;
     size_t len = 0;

@@ -10,7 +10,9 @@
 
     #include "structures.h"
 
-    #define INITIAL_DISTANCE_MULTIPLIER (sfVector2f){1, 1}
+    #define INITIAL_DISTANCE_MULTIPLIER (sfVector2f) {\
+    1, 1\
+    }
 
     /**
      * @brief This function manages the events
