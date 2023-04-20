@@ -23,9 +23,10 @@
      * @brief Get the mouse position object
      *
      * @param window - The window to get the mouse position from
+     * @param rpg - rpg_t structure
      * @return sfVector2f - The mouse position
      */
-    sfVector2f get_mouse_pos(sfRenderWindow *window);
+    sfVector2f get_mouse_pos(sfRenderWindow *window, int x, int y);
 
     /**
      * @brief This function handles movement keystrokes

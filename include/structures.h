@@ -19,7 +19,14 @@
     #include <SFML/Window/Event.h>
     #include <SFML/System/Clock.h>
 
-    #define MAXWINSIZE (sfVector2u) {1920, 1080}
+    #define MAXWINSIZE (sfVector2u) {\
+    1920, 1080\
+    }
+
+    #define NORTH 4.712388980384
+    #define EAST 0
+    #define WEST 3.14159265359;
+    #define SOUTH 1.57079632679;
 
     // gravity suggested value = {0, 6000}
     // medium_speed suggested value = 40000
@@ -72,20 +79,18 @@
         PRESSED,
     };
 
-    typedef struct button_s {
-        sfRectangleShape *rect;
-        sfText *name;
-        sfBool (*is_clicked) (struct button_s* button, sfRenderWindow *window);
-        sfBool (*is_hover) (struct button_s* button, sfRenderWindow *window);
-        enum e_gui_state state;
-        sfFloatRect hitbox;
-        int is_toggle;
-    } button_t;
-
     typedef struct save_entry_s {
         char *name;
         char *value;
     } save_entry_t;
+
+    typedef struct movement_keys_s {
+        sfKeyCode forward;
+        sfKeyCode backward;
+        sfKeyCode left;
+        sfKeyCode right;
+        sfKeyCode run;
+    } movement_keys_t;
 
     typedef struct dialog_s {
         sfText *name;
@@ -129,11 +134,23 @@
         dialog_t *dialogs;
         float gamma;
         float speed;
+        int size_x;
+        int size_y;
+        sfText *how_to_play_text;
+        sfRenderTexture *how_to_play_back;
+        movement_keys_t *key_binds;
     } rpg_t;
 
-    #define NORTH 4.712388980384
-    #define EAST 0
-    #define WEST 3.14159265359;
-    #define SOUTH 1.57079632679;
+    typedef struct button_s {
+        sfRectangleShape *rect;
+        sfText *name;
+        sfBool (*is_clicked) (struct button_s* button,
+        sfRenderWindow *window, rpg_t *rpg);
+        sfBool (*is_hover) (struct button_s* button,
+        sfRenderWindow *window, rpg_t *rpg);
+        enum e_gui_state state;
+        sfFloatRect hitbox;
+        int is_toggle;
+    } button_t;
 
 #endif /* !STRUCTURES_H_ */

@@ -28,11 +28,12 @@ rpg_t *handle_direction(rpg_t *rpg, float speed, sfKeyCode key, float angle)
 
 rpg_t *handle_player_pos(rpg_t *rpg)
 {
-    handle_direction(rpg, rpg->speed, sfKeyZ, 0);
-    if (sfKeyboard_isKeyPressed(sfKeyZ))
-        handle_direction(rpg, rpg->speed * 0.5, sfKeyLShift, 0);
-    handle_direction(rpg, rpg->speed, sfKeyS, pi);
-    handle_direction(rpg, rpg->speed * 0.75, sfKeyQ, 3 * (pi / 2));
-    handle_direction(rpg, rpg->speed * 0.75, sfKeyD, pi / 2);
+    handle_direction(rpg, rpg->speed, rpg->key_binds->forward, 0);
+    if (sfKeyboard_isKeyPressed(rpg->key_binds->forward))
+        handle_direction(rpg, rpg->speed * 0.5, rpg->key_binds->run, 0);
+    handle_direction(rpg, rpg->speed, rpg->key_binds->backward, pi);
+    handle_direction(rpg, rpg->speed * 0.75,
+    rpg->key_binds->left, 3 * (pi / 2));
+    handle_direction(rpg, rpg->speed * 0.75, rpg->key_binds->right, pi / 2);
     return (rpg);
 }

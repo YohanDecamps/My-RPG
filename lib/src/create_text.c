@@ -10,7 +10,7 @@
 struct sfText *create_text(char *displayed_text, int size)
 {
     sfText *text;
-    sfFont *font = sfFont_createFromFile("assets/StellaNovaBlack.ttf");
+    sfFont *font = sfFont_createFromFile("assets/Shrek.ttf");
     if (!font)
         return (NULL);
     text = sfText_create();

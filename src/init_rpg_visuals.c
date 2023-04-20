@@ -57,8 +57,8 @@ rpg_t *init_shapes(rpg_t *rpg)
     sfCircleShape_setOrigin(rpg->player_circle, (sfVector2f) {10, 10});
     rpg->floor = sfRectangleShape_create();
     sfRectangleShape_setFillColor(rpg->floor, (sfColor) {16, 8, 8, 255});
-    sfRectangleShape_setPosition(rpg->floor, (sfVector2f) {0, 540});
-    sfRectangleShape_setSize(rpg->floor, (sfVector2f) {1920, 3000});
+    sfRectangleShape_setPosition(rpg->floor, (sfVector2f) {0, rpg->size_y / 2});
+    sfRectangleShape_setSize(rpg->floor, (sfVector2f) {rpg->size_x, 3000});
     sfRectangleShape_setSize(rpg->rect, (sfVector2f) {50, 50});
     sfRectangleShape_setFillColor(rpg->rect, sfBlack);
     return (rpg);

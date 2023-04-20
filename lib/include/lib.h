@@ -45,9 +45,11 @@
      * @brief Create a window object
      *
      * @param name - The name of the window
+     * @param size_x - width of the window
+     * @param size_y - height of the window
      * @return sfRenderWindow* - The created CSFML sfRenderWindow object
      */
-    sfRenderWindow* create_window(char *name);
+    sfRenderWindow* create_window(char *name, int size_x, int size_y);
 
     /**
      * @brief This function splits a string into an array of strings
