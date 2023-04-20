@@ -173,4 +173,12 @@
      */
     int keybind(rpg_t *rpg, button_t *button);
 
+    /**
+     * @brief disply the player inventory
+     *
+     * @param rpg
+     * @return int
+     */
+    int inventory(rpg_t *rpg);
+
 #endif /* !MAIN_MENU_H_ */

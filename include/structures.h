@@ -105,6 +105,13 @@
         sfVector2f scale;
     } dialog_dim_t;
 
+    typedef struct inventory_s {
+        char *obj_name;
+        int possesed;
+        sfSprite *obj_sprite;
+        struct inventory_s *next;
+    } inventory_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -136,6 +143,8 @@
         sfText *how_to_play_text;
         sfRenderTexture *how_to_play_back;
         movement_keys_t *key_binds;
+        sfSprite *inventory_back;
+        inventory_t *inventory;
     } rpg_t;
 
     typedef struct button_s {
