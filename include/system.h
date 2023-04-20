@@ -9,7 +9,7 @@
     #define SYSTEM_H
 
     #include "structures.h"
-#include <SFML/Graphics/Types.h>
+    #include <SFML/Graphics/Types.h>
 
     /**
      * @brief This function returns the value of the environment variable name,
@@ -27,7 +27,7 @@
 
     /**
      * @brief This function parses a save file and returns an array of
-              save_entry_t
+     *         save_entry_t
      *
      * @param filename - name of the save file
      * @return save_entry_t** - array of save_entry_t

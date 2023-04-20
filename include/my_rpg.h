@@ -10,6 +10,8 @@
 
     #include "structures.h"
 
+    #define MAPS_COUNT 4
+
     /**
      * @brief The main function for the project
      *
@@ -46,7 +48,7 @@
      * @param rpg - rpg_t structure
      * @return rpg_t* - The updated rpg_t structure
      */
-    rpg_t *init_map(rpg_t *rpg);
+    rpg_t *init_maps(rpg_t *rpg);
 
     /**
      * @brief This function initializes the mouse structure
@@ -68,7 +70,7 @@
      * @brief This function reinitialyses the value of rpg stuct
      *
      * @param rpg - rpg_t struture
-     * @return void
+     * @return rpg_t srtucture
     */
     rpg_t *reinit_rpg_values(rpg_t *rpg);
 
@@ -115,5 +117,28 @@
      * @return queu_t*
     */
     queu_t * get_next_visit(queu_t *queu, char **map);
+
+    /**
+     * @brief Switches the level
+     *
+     * @param rpg - rpg_t structure
+     * @return int - return status
+     */
+    int switch_level(rpg_t *rpg, int level);
+
+    /**
+     * @brief This function frees the memory allocated for the rpg_t structure
+     *
+     * @param rpg - rpg_t structure
+     */
+    void freemem(rpg_t *rpg);
+
+    /**
+     * @brief This function init default key binds
+     *
+     * @param rpg - rpg_t structure
+     * @return rpg_t structure
+     */
+    rpg_t *init_key_binds(rpg_t *rpg);
 
 #endif /* !MY_H_ */
