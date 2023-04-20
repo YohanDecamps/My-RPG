@@ -10,6 +10,7 @@
 #include "structures.h"
 #include "sprites.h"
 #include "my_rpg.h"
+#include "system.h"
 
 rpg_t *init_all_values(rpg_t *rpg)
 {
@@ -33,5 +34,6 @@ rpg_t *init_rpg_variables(void)
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
+    rpg->save_entry = fetch_save("save1");
     return (rpg);
 }

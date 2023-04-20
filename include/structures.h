@@ -73,6 +73,7 @@
         sfMusic *metal_pipe_sound;
         sfMusic *music;
         sfVector2f prev_mouse_pos;
+        save_entry_t **save_entry;
         float gamma;
         float speed;
     } rpg_t;

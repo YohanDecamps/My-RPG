@@ -43,7 +43,7 @@ OBJ	=	$(SRC:.c=.o)
 
 NAME	=	my_rpg
 
-CFLAGS += -Wall -Wextra -Wshadow -Wimplicit
+CFLAGS += -Wall -Wextra -Wshadow -Wimplicit -fsanitize=address
 
 LDFLAGS += -L./lib -lmy -lm -lcsfml-graphics -lcsfml-audio \
 -lcsfml-window -lcsfml-system

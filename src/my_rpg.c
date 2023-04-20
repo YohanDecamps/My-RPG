@@ -53,5 +53,5 @@ int myrpg(void)
         display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
-    return (0);
+    return 0;
 }

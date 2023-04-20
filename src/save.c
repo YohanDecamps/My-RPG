@@ -83,15 +83,14 @@ float get_float_from_str(char* str)
 
 void save (rpg_t *rpg)
 {
-    save_entry_t **save_info = malloc(sizeof(save_entry_t) * 3);
+    save_entry_t **save_info = rpg->save_entry;
+    if (save_info == NULL) {
+        save_info = malloc(sizeof(save_entry_t *));
+        save_info[0] = NULL;
+    }
     char *pos_x = get_str_from_float(rpg->player_pos.x, 5);
     char *pos_y = get_str_from_float(rpg->player_pos.y, 5);
-    save_info[0] = malloc(sizeof(save_entry_t));
-    save_info[1] = malloc(sizeof(save_entry_t));
-    save_info[0]->name = "pos_x";
-    save_info[1]->name = "pos_y";
-    save_info[0]->value = pos_x;
-    save_info[1]->value = pos_y;
-    save_info[2] = NULL;
-    save_writesave(save_info, "Tamereesttellementgrossequilfautdeuxpokéflute");
+    save_info = save_setvalue(save_info, "pos_x", pos_x);
+    save_info = save_setvalue(save_info, "pos_y", pos_y);
+    save_writesave(save_info, "save1");
 }
