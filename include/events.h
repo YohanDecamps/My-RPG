@@ -10,6 +10,10 @@
 
     #include "structures.h"
 
+    #define INITIAL_DISTANCE_MULTIPLIER (sfVector2f) {\
+    1, 1\
+    }
+
     /**
      * @brief This function manages the events
      *
@@ -25,5 +29,13 @@
      * @param event - The event to be analysed
      */
     void analyse_events(sfRenderWindow *window, sfEvent *event);
+
+    /**
+     * @brief Handle the events for the metal pipe,
+     * and will print it correctly
+     *
+     * @param rpg - rpg_t structure
+     */
+    void metal_pipe_handler(rpg_t *rpg);
 
 #endif /* !EVENTS_H_ */

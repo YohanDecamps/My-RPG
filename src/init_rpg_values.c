@@ -13,6 +13,7 @@
 #include "entity.h"
 #include <SFML/System/Vector2.h>
 #include "dialogs.h"
+#include "system.h"
 
 rpg_t *init_mouse(rpg_t *rpg)
 {
@@ -47,6 +48,14 @@ Current objective :\nSurvive", 25);
     return (rpg);
 }
 
+rpg_t *init_inventory(rpg_t *rpg)
+{
+    rpg->inventory_back = create_sprite("assets/inventory.png",
+    (sfVector2f) {1.5, 1.5});
+    sfSprite_setPosition (rpg->inventory_back, (sfVector2f) {0, 500});
+    rpg->inventory = NULL;
+}
+
 rpg_t *init_rpg_variables(void)
 {
     rpg_t *rpg = malloc(sizeof(rpg_t));
@@ -56,14 +65,17 @@ rpg_t *init_rpg_variables(void)
     rpg->window = create_window("RPG", 1920, 1080);
     rpg = init_mouse(rpg);
     rpg->event = malloc(sizeof(sfEvent));
-    rpg = init_maps(rpg);
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
+    rpg->pipe_clock = sfClock_create();
+    rpg->throw_speed = 2;
     rpg = init_entity(rpg);
     rpg->key_binds = malloc(sizeof(movement_keys_t));
     rpg = init_key_binds(rpg);
     rpg->dialog = init_dialog_sprite();
+    rpg = init_inventory(rpg);
     rpg->dialogs = NULL;
+    rpg->save_entry = fetch_save("save1");
     return (rpg);
 }

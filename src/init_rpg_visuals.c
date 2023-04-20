@@ -44,6 +44,7 @@ rpg_t *init_all_sprites(rpg_t *rpg)
     create_sprite("assets/metal_pipe.png", (sfVector2f) {-3, 3});
     sfSprite_setPosition(rpg->metal_pipe, (sfVector2f) {2000, 900});
     sfSprite_setRotation(rpg->metal_pipe, 30);
+    rpg = init_maps(rpg);
     return (rpg);
 }
 

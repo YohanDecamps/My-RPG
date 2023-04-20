@@ -17,6 +17,7 @@
     #include <SFML/System/Vector2.h>
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System.h>
     #include <SFML/System/Clock.h>
     #include <stdbool.h>
 
@@ -72,6 +73,7 @@
         sfSprite *sprite;
         sfVector2f size;
         float slope;
+        float pv;
     } entity_t;
 
     enum e_gui_state {
@@ -108,6 +110,13 @@
         sfVector2f scale;
     } dialog_dim_t;
 
+    typedef struct inventory_s {
+        char *obj_name;
+        int possesed;
+        sfSprite *obj_sprite;
+        struct inventory_s *next;
+    } inventory_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -133,8 +142,11 @@
         int level;
         sfSprite *dialog;
         dialog_t *dialogs;
+        save_entry_t **save_entry;
         float gamma;
         float speed;
+        sfClock *pipe_clock;
+        int throw_speed;
         int size_x;
         int size_y;
         sfText *how_to_play_text;
@@ -143,7 +155,16 @@
         sfText *quest;
         int found;
         bool level_selector;
+        sfSprite *inventory_back;
+        inventory_t *inventory;
     } rpg_t;
+
+    typedef struct queu {
+        int x;
+        int y;
+        struct queu * next;
+        char *instruction;
+    } queu_t;
 
     typedef struct button_s {
         sfRectangleShape *rect;

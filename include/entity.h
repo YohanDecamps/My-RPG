@@ -25,4 +25,11 @@
      */
     rpg_t *init_entity(rpg_t *rpg);
 
+    /**
+     * @brief reduce ennemy pv if hit
+     *
+     * @param rpg
+     */
+    void entity_is_hit(rpg_t *rpg);
+
 #endif /* !ENTITY_H_ */
