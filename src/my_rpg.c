@@ -42,8 +42,10 @@ void draw_all(rpg_t *rpg)
     rpg->prev_mouse_pos = get_mouse_pos(rpg->window, rpg->size_x, rpg->size_y);
     sfRenderWindow_drawSprite(rpg->window, rpg->entity[0].sprite, NULL);
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
-    if (sfKeyboard_isKeyPressed(sfKeyM) || sfKeyboard_isKeyPressed(sfKeyTab))
+    if (sfKeyboard_isKeyPressed(sfKeyM))
         draw_map(rpg);
+    if (sfKeyboard_isKeyPressed(sfKeyTab))
+        inventory(rpg);
     display_framerate(rpg);
     display_dialogs(rpg);
 }
