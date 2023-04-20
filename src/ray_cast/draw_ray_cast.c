@@ -28,10 +28,8 @@ void draw_ray_sprite(rpg_t *rpg, ray_cast_t *rc, int i)
     char id = rpg->sprite_str[i];
     if (rpg->maps[rpg->level]->array[(int) rc->hit_point.y / 50]
     [(int) rc->hit_point.x / 50] == id) {
-        float xprd = rc->hit_point.x / 50 -
-        (int) (rc->hit_point.x / 50);
-        float yprd = rc->hit_point.y / 50 -
-        (int) (rc->hit_point.y / 50);
+        float xprd = rc->hit_point.x / 50 - (int) (rc->hit_point.x / 50);
+        float yprd = rc->hit_point.y / 50 - (int) (rc->hit_point.y / 50);
         float shades = rc->distance * 255 / rpg->gamma;
         if (shades > 255) shades = 255;
         sfSprite_setScale(sprite, (sfVector2f)

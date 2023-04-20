@@ -37,7 +37,6 @@ static void free_sprites(rpg_t *rpg)
     sfSprite_destroy(rpg->metal_pipe);
 }
 
-
 void freemem(rpg_t *rpg)
 {
     freemaps(rpg->maps);
