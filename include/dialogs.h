@@ -12,8 +12,12 @@
 
     #define TEXT_SIZE 50
     #define NAME_SIZE 70
-    #define NAME_POSITION (sfVector2u) {310, 460}
-    #define TEXT_POSITION (sfVector2u) {100, 350}
+    #define NAME_POSITION (sfVector2u) {\
+    310, 460\
+    }
+    #define TEXT_POSITION (sfVector2u) {\
+    100, 350\
+    }
 
     /**
      * @brief Create a dialog object from a name, a text and a time

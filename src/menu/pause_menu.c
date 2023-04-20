@@ -13,6 +13,7 @@ void draw_pause_menu(button_t **all_buttons, sfRenderWindow *window)
     draw_button(all_buttons[8], window);
     draw_button(all_buttons[9], window);
     draw_button(all_buttons[5], window);
+    draw_button(all_buttons[6], window);
     draw_button(all_buttons[10], window);
 }
 

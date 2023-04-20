@@ -42,7 +42,7 @@ static void init_pause_menu_button(button_t **all_buttons, int x, int y)
     (sfVector2f) {x * 0.130208, y * 0.06481}, "Resume Game");
     all_buttons[9] = init_button((sfVector2f) {x * 0.4375, y * 0.370370},
     (sfVector2f) {x * 0.130208, y * 0.06481}, "Save");
-    all_buttons[10] = init_button((sfVector2f) {x * 0.4375, y * 0.555555},
+    all_buttons[10] = init_button((sfVector2f) {x * 0.4375, y * 0.648148},
     (sfVector2f) {x * 0.130208, y * 0.06481}, "Exit to Main Menu");
 }
 
@@ -61,7 +61,7 @@ static void init_main_menu_buttons(button_t **all_buttons, int x, int y)
     all_buttons[5] = init_button((sfVector2f) {x * 0.4375, y * 0.462962},
     (sfVector2f) {x * 0.130208, y * 0.06481}, "Settings");
     all_buttons[6] = init_button((sfVector2f) {x * 0.4375, y * 0.555555},
-    (sfVector2f) {x * 0.130208, y * 0.06481}, "Rate us");
+    (sfVector2f) {x * 0.130208, y * 0.06481}, "How to Play");
     all_buttons[7] = init_button((sfVector2f) {x * 0.4375, y * 0.648148},
     (sfVector2f) {x * 0.130208, y * 0.06481}, "Exit");
 }
