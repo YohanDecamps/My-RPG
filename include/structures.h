@@ -18,6 +18,7 @@
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
     #include <SFML/System/Clock.h>
+    #include <stdbool.h>
 
     #define MAXWINSIZE (sfVector2u) {\
     1920, 1080\
@@ -139,6 +140,9 @@
         sfText *how_to_play_text;
         sfRenderTexture *how_to_play_back;
         movement_keys_t *key_binds;
+        sfText *quest;
+        int found;
+        bool level_selector;
     } rpg_t;
 
     typedef struct button_s {

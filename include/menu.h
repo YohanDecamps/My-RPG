@@ -173,4 +173,20 @@
      */
     int keybind(rpg_t *rpg, button_t *button);
 
+    /**
+     * @brief handle the keybind menu
+     *
+     * @param all_buttons - list of all the buttons
+     * @param rpg - rpg_t structure
+     * @return int - Exit status
+     */
+    void level_selector(rpg_t *rpg);
+
+    /**
+     * @brief Displays the end screen
+     *
+     * @param rpg rpg_t structure
+     */
+    void end_screen(rpg_t *rpg);
+
 #endif /* !MAIN_MENU_H_ */

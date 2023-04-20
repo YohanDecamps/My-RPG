@@ -12,6 +12,7 @@
 #include <SFML/Graphics/RenderTexture.h>
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Sprite.h>
+#include <SFML/Graphics/Text.h>
 #include <stdlib.h>
 
 void freemaps(map_t **maps)
@@ -35,6 +36,7 @@ static void free_sprites(rpg_t *rpg)
         }
     sfSprite_destroy(rpg->map_sprite);
     sfSprite_destroy(rpg->metal_pipe);
+    sfRenderTexture_destroy(rpg->how_to_play_back);
 }
 
 void freemem(rpg_t *rpg)
@@ -49,5 +51,6 @@ void freemem(rpg_t *rpg)
     sfMusic_destroy(rpg->metal_pipe_sound);
     sfMusic_destroy(rpg->music);
     sfRenderWindow_destroy(rpg->window);
-
+    sfText_destroy(rpg->how_to_play_text);
+    sfText_destroy(rpg->quest);
 }

@@ -24,6 +24,7 @@
 #include <SFML/Graphics/RenderTexture.h>
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Graphics/Sprite.h>
+#include <SFML/Graphics/Text.h>
 #include <SFML/Graphics/Types.h>
 #include <SFML/Graphics/VertexArray.h>
 #include <SFML/System/Clock.h>
@@ -44,6 +45,9 @@ void draw_all(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyM) || sfKeyboard_isKeyPressed(sfKeyTab))
         draw_map(rpg);
+    sfText_setPosition(rpg->quest, (sfVector2f) {10, 10});
+    sfText_setColor(rpg->quest, sfWhite);
+    sfRenderWindow_drawText(rpg->window, rpg->quest, NULL);
     display_framerate(rpg);
     display_dialogs(rpg);
 }

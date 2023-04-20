@@ -10,6 +10,7 @@
 #include "sprites.h"
 #include "system.h"
 #include "lib.h"
+#include <SFML/Graphics/Sprite.h>
 
 void show_saves(button_t **all_buttons, sfRenderWindow *window)
 {
@@ -31,6 +32,7 @@ void how_to_play(button_t **all_buttons, rpg_t *rpg)
         sfSprite_setPosition(draw, (sfVector2f) {1300, 900});
         sfSprite_setScale(draw, (sfVector2f) {1, -1});
         sfRenderWindow_drawSprite(rpg->window, draw, NULL);
+        sfSprite_destroy(draw);
     }
 }
 

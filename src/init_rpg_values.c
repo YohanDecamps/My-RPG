@@ -42,6 +42,8 @@ defend yourself, but because\nof the inflation they could only\nafford a \
 Cardboard pipe\nthat you can use by pressing\nleft click.\nObunga's manor is \
 divided in\ndifferent floor, each one\nhaving its own menace.\n\n\
 Current objective :\nSurvive", 25);
+    rpg->quest = create_text("Quest\n- Escape the enemy\n\
+- Find the missing letter", 50);
     return (rpg);
 }
 
