@@ -111,4 +111,20 @@
      */
     char *my_strdup(char const *str);
 
+    /**
+     * @brief This function returns a number from a string
+     *
+     * @param str - The string to be converted (not NULL)
+     * @return int - The number from the string
+     */
+    int my_getnbr(char const *str);
+
+    /**
+     * @brief This function returns an array of int from an array of strings
+     *
+     * @param str_array - The array of strings to be converted (not NULL)
+     * @return int* - The array of int
+     */
+    int *str_array_to_int(char **str_array);
+
 #endif

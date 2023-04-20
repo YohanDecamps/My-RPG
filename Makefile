@@ -42,6 +42,8 @@ SRC	=	src/main.c						\
 		src/system/saves/delvalue.c			\
 		src/system/saves/freesave.c			\
 		src/system/saves/writesave.c \
+		src/switch_level.c \
+		src/freemem.c \
 		src/dialogs/create_dialogs.c \
 		src/dialogs/display_dialogs.c \
 		src/dialogs/init_dialogs.c \

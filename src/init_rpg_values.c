@@ -14,11 +14,22 @@
 #include <SFML/System/Vector2.h>
 #include "dialogs.h"
 
+rpg_t *init_mouse(rpg_t *rpg)
+{
+    sfWindow_setMouseCursorVisible((sfWindow *) rpg->window, sfFalse);
+    sfMouse_setPosition((sfVector2i) {rpg->size_x / 2,
+    rpg->size_y / 2}, (sfWindow *) rpg->window);
+    rpg->prev_mouse_pos.x = (rpg->size_x / 2) * 0.958333;
+    rpg->prev_mouse_pos.y = rpg->size_y / 2;
+    return (rpg);
+}
+
 rpg_t *init_all_values(rpg_t *rpg)
 {
+    rpg->player_pos.x = 0;
+    rpg->player_pos.y = 0;
+    rpg->level = 0;
     rpg->slope = SOUTH;
-    rpg->player_pos.x = 225;
-    rpg->player_pos.y = 275;
     rpg->gamma = 600;
     rpg->y_offset = 540;
     rpg->speed = 4;
@@ -43,7 +54,7 @@ rpg_t *init_rpg_variables(void)
     rpg->window = create_window("RPG", 1920, 1080);
     rpg = init_mouse(rpg);
     rpg->event = malloc(sizeof(sfEvent));
-    rpg = init_map(rpg);
+    rpg = init_maps(rpg);
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);

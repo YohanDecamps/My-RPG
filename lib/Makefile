@@ -15,7 +15,9 @@ SRC =	src/my_strlen.c			\
 		src/my_strcat.c			\
 		src/my_str_to_word_array.c\
 		src/my_strcmp.c			\
-		src/my_strdup.c
+		src/my_strdup.c \
+		src/my_getnbr.c \
+		src/str_array_to_int.c
 
 OBJ =	$(SRC:.c=.o)
 

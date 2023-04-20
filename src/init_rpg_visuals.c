@@ -20,10 +20,18 @@ rpg_t *init_sprite(rpg_t *rpg, char id, char *file)
     return (rpg);
 }
 
+static void sanitize_sprites(rpg_t *rpg)
+{
+    for (int i = 0; i < 256; i++) {
+        rpg->sprite[i].map_sprite = NULL;
+        rpg->sprite[i].ray_sprite = NULL;
+    }
+}
+
 rpg_t *init_all_sprites(rpg_t *rpg)
 {
     rpg->sprite = malloc(sizeof(sprite_t) * 256);
-    rpg->sprite_str = malloc(sizeof(sprite_t) * 256);
+    sanitize_sprites(rpg);
     rpg = init_sprite(rpg, 'B', "assets/Bricks.png");
     rpg = init_sprite(rpg, 'W', "assets/Backroom_Wall.png");
     rpg = init_sprite(rpg, 'w', "assets/Wood.png");

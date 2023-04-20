@@ -48,7 +48,9 @@
     } verlet_t;
 
     typedef struct map_s {
+        char **fcontent;
         char **array;
+        int *meta;
         int y;
     } map_t;
 
@@ -108,7 +110,7 @@
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
-        map_t map;
+        map_t **maps;
         sfRectangleShape *rect;
         float y_offset;
         float slope;
@@ -127,6 +129,7 @@
         sfMusic *metal_pipe_sound;
         sfMusic *music;
         sfVector2f prev_mouse_pos;
+        int level;
         sfSprite *dialog;
         dialog_t *dialogs;
         float gamma;

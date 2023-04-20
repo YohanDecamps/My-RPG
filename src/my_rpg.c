@@ -85,5 +85,6 @@ int myrpg(void)
     main_menu(rpg->window, rpg->event, rpg);
     sfMusic_play(rpg->music);
     loop(rpg);
+    freemem(rpg);
     return (0);
 }

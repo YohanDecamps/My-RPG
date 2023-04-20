@@ -17,24 +17,24 @@
 int is_colliding_x(rpg_t *rpg, sfVector2f pointx)
 {
     return (((rpg->slope > M_PI / 2.0 && rpg->slope < 3 * M_PI / 2.0) &&
-    (pointx.y < 0 || pointx.y > rpg->map.y ||
-    rpg->map.array[(int) ceil(pointx.y) - 1]
+    (pointx.y < 0 || pointx.y > rpg->maps[rpg->level]->y ||
+    rpg->maps[rpg->level]->array[(int) ceil(pointx.y) - 1]
     [(int) pointx.x - 1] != ' '))
     || ((rpg->slope < M_PI / 2.0 || rpg->slope > 3 * M_PI / 2.0) &&
-    (pointx.y < 0 || pointx.y > rpg->map.y ||
-    rpg->map.array[(int) floor(pointx.y)]
+    (pointx.y < 0 || pointx.y > rpg->maps[rpg->level]->y ||
+    rpg->maps[rpg->level]->array[(int) floor(pointx.y)]
     [(int) pointx.x] != ' ')));
 }
 
 int is_colliding_y(rpg_t *rpg, sfVector2f pointy)
 {
     return (((rpg->slope < 0 || rpg->slope > M_PI) &&
-    (pointy.x < 0 || pointy.x > my_strlen(rpg->map.array[(int)
-    floor(pointy.y)]) || rpg->map.array[(int) pointy.y - 1]
+    (pointy.x < 0 || pointy.x > my_strlen(rpg->maps[rpg->level]->array[(int)
+    floor(pointy.y)]) || rpg->maps[rpg->level]->array[(int) pointy.y - 1]
     [(int) floor(pointy.x)] != ' '))
     || ((rpg->slope > 0 && rpg->slope < M_PI) &&
-    (pointy.x < 0 || pointy.x > my_strlen(rpg->map.array[(int)
-    ceil(pointy.y) - 1]) || rpg->map.array[(int) pointy.y]
+    (pointy.x < 0 || pointy.x > my_strlen(rpg->maps[rpg->level]->array[(int)
+    ceil(pointy.y) - 1]) || rpg->maps[rpg->level]->array[(int) pointy.y]
     [(int) ceil(pointy.x) - 1] != ' ')));
 }
 
