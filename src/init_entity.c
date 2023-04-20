@@ -10,6 +10,7 @@
 #include "structures.h"
 #include "sprites.h"
 #include "my_rpg.h"
+#include "entity.h"
 #include <SFML/System/Vector2.h>
 
 rpg_t *init_entity(rpg_t *rpg)
