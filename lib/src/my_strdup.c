@@ -17,7 +17,6 @@ char *my_strdup(char const *str)
         dest[i] = str[i];
         i += 1;
     }
-
     dest[i] = '\0';
     return dest;
 }

@@ -153,6 +153,13 @@
         inventory_t *inventory;
     } rpg_t;
 
+    typedef struct queu {
+        int x;
+        int y;
+        struct queu * next;
+        char *instruction;
+    } queu_t;
+
     typedef struct button_s {
         sfRectangleShape *rect;
         sfText *name;
