@@ -56,8 +56,17 @@ void set_entity_pos(rpg_t *rpg)
     float distance = sqrt(pow(rpg->player_pos.x - rpg->entity[0].pos.x, 2) +
     pow(rpg->player_pos.y - rpg->entity[0].pos.y, 2));
     sfSprite_setScale(rpg->entity[0].sprite,
-    (sfVector2f) {(float) ((150 * 1080) / distance)
-    / 512, (float) ((150 * 1080) / distance) / 512});
+    (sfVector2f) {(float) ((150 * rpg->size_y) / distance)
+    / 512, (float) ((150 * rpg->size_y) / distance) / 512});
+}
+
+void button_handler(rpg_t *rpg)
+{
+    if (sfMouse_isButtonPressed(sfMouseLeft)) {
+        sfMusic_stop(rpg->metal_pipe_sound);
+        sfMusic_play(rpg->metal_pipe_sound);
+        entity_is_hit(rpg);
+    }
 }
 
 void loop(rpg_t *rpg)
@@ -65,9 +74,9 @@ void loop(rpg_t *rpg)
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
-        if (manage_event(rpg) == 1)
-            return;
+        if (manage_event(rpg) == 1) return;
         rpg = handle_player_pos(rpg);
+        button_handler(rpg);
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
         animate_entities(rpg);
         set_entity_pos(rpg);

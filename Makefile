@@ -8,7 +8,7 @@
 SRC	=	src/main.c						\
 		src/my_rpg.c					\
 		src/system/get_usr_input.c		\
-    	src/system/getenv.c				\
+    src/system/getenv.c				\
 		src/system/get_mouse_pos.c		\
 		src/handle_movement.c			\
 		src/draw_map.c					\
@@ -36,7 +36,9 @@ SRC	=	src/main.c						\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
 		src/menu/update_button.c 			\
-		src/particle.c \
+		src/particle.c 						\
+		src/hit_entity.c					\
+		src/ray_cast/cot.c					\
 		src/system/inventory.c 				\
 		src/system/saves/fetch_save.c		\
 		src/system/saves/getvalue.c			\

@@ -72,6 +72,7 @@
         sfSprite *sprite;
         sfVector2f size;
         float slope;
+        float pv;
     } entity_t;
 
     enum e_gui_state {
