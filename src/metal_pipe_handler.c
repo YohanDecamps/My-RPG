@@ -34,6 +34,7 @@ sfVector2f *scale)
         *is_metal_pipe_throw = false;
     (*scale).x -= 0.075;
     (*scale).y -= 0.075;
+    button_handler(rpg);
 }
 
 void metal_pipe_handler(rpg_t *rpg)

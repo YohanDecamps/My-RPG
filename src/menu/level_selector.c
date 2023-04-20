@@ -28,11 +28,13 @@ static void init_buttons(button_t **buttons, rpg_t *rpg)
         "Level 4");
     buttons[4] = init_button((sfVector2f) {1040, 200}, (sfVector2f) {150, 50},
         "Level 5");
+    buttons[5] = init_button((sfVector2f) {1250, 200}, (sfVector2f) {150, 50},
+        "Level 6");
 }
 
 static void draw_selector(button_t **buttons, sfRenderWindow *window)
 {
-    for (int i = 0; i < 5;i++)
+    for (int i = 0; i < 6;i++)
         draw_button(buttons[i], window);
 }
 
@@ -51,7 +53,7 @@ static void handle_events(sfEvent *event, sfRenderWindow *window,
 
 static void free_buttons(button_t **buttons)
 {
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 6; i++) {
         sfText_destroy(buttons[i]->name);
         sfRectangleShape_destroy(buttons[i]->rect);
         free(buttons[i]);
@@ -63,7 +65,7 @@ void level_selector(rpg_t *rpg)
     rpg->level_selector = true;
     if (rpg->level == MAPS_COUNT - 1)
         return end_screen(rpg);
-    button_t *buttons[5] = {NULL, NULL, NULL, NULL, NULL};
+    button_t *buttons[6] = {NULL, NULL, NULL, NULL, NULL, NULL};
     init_buttons(buttons, rpg);
     sfRenderWindow_setMouseCursorVisible(rpg->window, 1);
     while (rpg->level_selector &&
