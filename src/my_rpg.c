@@ -14,10 +14,12 @@
 #include "system.h"
 #include "window.h"
 #include "events.h"
+#include "dialogs.h"
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/RectangleShape.h>
 #include <SFML/Graphics/RenderTexture.h>
 #include <SFML/Graphics/RenderWindow.h>
+#include "dialogs.h"
 
 void draw_all(rpg_t *rpg)
 {
@@ -31,6 +33,7 @@ void draw_all(rpg_t *rpg)
         draw_map(rpg);
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
     display_framerate(rpg);
+    display_dialogs(rpg);
 }
 
 int myrpg(void)

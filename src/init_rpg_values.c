@@ -10,6 +10,7 @@
 #include "structures.h"
 #include "sprites.h"
 #include "my_rpg.h"
+#include "dialogs.h"
 
 rpg_t *init_all_values(rpg_t *rpg)
 {
@@ -37,5 +38,7 @@ rpg_t *init_rpg_variables(void)
     rpg = init_sounds(rpg);
     rpg->key_binds = malloc(sizeof(movement_keys_t));
     rpg = init_key_binds(rpg);
+    rpg->dialog = init_dialog_sprite();
+    rpg->dialogs = NULL;
     return (rpg);
 }
