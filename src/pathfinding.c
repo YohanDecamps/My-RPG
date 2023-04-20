@@ -8,8 +8,8 @@
 #include "structures.h"
 #include "stdio.h"
 #include "lib.h"
+#include "my_rpg.h"
 #include <stdlib.h>
-#include <string.h>
 
 static char *end_resolve_map (queu_t * queu)
 {
@@ -24,7 +24,7 @@ static char *end_resolve_map (queu_t * queu)
     result = queu->instruction;
     while (temp1) {
         temp2 = temp1->next;
-        if (temp1->instruction && strlen(temp1->instruction) > 1)
+        if (temp1->instruction && my_strlen(temp1->instruction) > 1)
             free(temp1->instruction);
         free(temp1);
         temp1 = temp2;
@@ -35,6 +35,8 @@ static char *end_resolve_map (queu_t * queu)
 
 char *find_path (char **map, sfVector2i *start, sfVector2i *end)
 {
+    if (start->x == end->x && start->y == end->y)
+        return NULL;
     queu_t *queu = add_to_queu(start->x, start->y, NULL, NULL);
     while (queu) {
         if (queu->y == end->y && queu->x == end->x)

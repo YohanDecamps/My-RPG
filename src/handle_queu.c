@@ -7,6 +7,9 @@
 
 #include "structures.h"
 #include "stdio.h"
+#include "my_rpg.h"
+#include "stdlib.h"
+#include "string.h"
 
 static queu_t *get_new_queu (int x, int y, queu_t *head, char *instruction)
 {
@@ -45,8 +48,7 @@ queu_t *add_to_queu (const int x, const int y, queu_t *head, char *instruction)
     return get_new_queu(x, y, head, instruction);
 }
 
-
-queu_t * next_in_queu(queu_t * queu)
+queu_t *next_in_queu(queu_t *queu)
 {
     queu_t * new_queu = queu->next;
     if (queu == NULL)

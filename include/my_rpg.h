@@ -76,16 +76,16 @@
 
     /**
      * @brief this function copy a char **
-     * 
+     *
      * @param original the char ** that need to be copied
      * @param length the length of the char **
-     * @return char** 
+     * @return char**
      */
     char **copy_char_array(char** original, int length);
 
     /**
      * @brief this function free a char **
-     * 
+     *
      * @param map the char ** that need to be freed
      * @param y the lenght of the char **
     */
@@ -93,7 +93,7 @@
 
     /**
      * @brief add the node in x, y to the queu
-     * 
+     *
      * @param x the coordinate of the node to be added to queue
      * @param y the coordinate of the node to be added to queue
      * @param head the head of the queue
@@ -103,15 +103,15 @@
 
     /**
      * @brief switch current node to current->next
-     * 
+     *
      * @param queu the current node that need to be switched
-     * @return queu_t* 
+     * @return queu_t*
     */
     queu_t * next_in_queu(queu_t * queu);
 
     /**
      * @brief add the next node that need to be visited to the queue
-     * 
+     *
      * @param queu the current node to current->next
      * @param map the map
      * @return queu_t*
@@ -140,5 +140,18 @@
      * @return rpg_t structure
      */
     rpg_t *init_key_binds(rpg_t *rpg);
+
+    /**
+     * @brief find path for shrek to go to the player
+     *
+     * @param map a clone of the map
+     * @param start the coordinate of shrek
+     * @param end the coordinate of the player
+     * @return char * instruction for shrek
+     */
+    char *find_path (char **map, sfVector2i *start, sfVector2i *end);
+
+    void move_shrek (rpg_t *rpg);
+    char *my_strcat_no_free (char *dest, char *src);
 
 #endif /* !MY_H_ */
