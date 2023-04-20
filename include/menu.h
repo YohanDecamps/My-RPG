@@ -24,8 +24,7 @@
      *
      * @return sfBool - sfTRue ou sfFalse
      */
-    sfBool is_hover(struct button_s* button,
-    sfRenderWindow *window, rpg_t *rpg);
+    sfBool is_hover(struct button_s *button, sfRenderWindow *window);
 
     /**
      * @brief this funtion returns sfTrue if the button is cliked
@@ -35,8 +34,7 @@
      * @param rpg - rpg_t structure
      * @return sfBool - sfTrue or sfFalse
      */
-    sfBool is_clicked(struct button_s* button,
-    sfRenderWindow *window, rpg_t *rpg);
+    sfBool is_clicked(struct button_s *button, sfRenderWindow *window);
 
     /**
      * @brief initialises a new button_t stucture
@@ -65,7 +63,7 @@
      * @return struct button_s*
      */
     struct button_s *update_button(struct button_s *button, sfEvent *event,
-    sfRenderWindow *window, rpg_t *rpg);
+                                    sfRenderWindow *window, rpg_t *rpg);
 
     /**
      * @brief this function draws all the buttons
@@ -116,9 +114,11 @@
      * @brief Set the state of all the buttons
      *
      * @param all_buttons - list of all the buttons
+     * @param rpg - rpg_t structure
      * @param new_state - state to update
      */
-    void set_all_button(button_t **all_buttons, enum e_gui_state new_state);
+    void set_all_button(button_t **all_buttons, enum e_gui_state new_state,
+    rpg_t *rpg);
 
     /**
      * @brief draw all the buttons constiting in the pause menu
@@ -145,7 +145,7 @@
      * @param rpg - rpg_t structure
      */
     void analyse_button_events(sfEvent *event, sfRenderWindow *window,
-    button_t **all_buttons, rpg_t *rpg);
+                                button_t **all_buttons, rpg_t *rpg);
 
     /**
      * @brief stops the music

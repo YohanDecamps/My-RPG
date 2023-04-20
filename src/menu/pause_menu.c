@@ -31,6 +31,8 @@ int pause_menu(rpg_t *rpg)
         }
         if (all_buttons[10]->state == PRESSED)
             return main_menu(rpg->window, rpg->event, rpg);
+        if (all_buttons[9]->state == PRESSED)
+            save(rpg);
         draw_all(rpg);
         draw_pause_menu(all_buttons, rpg->window);
         settings_menu(all_buttons, rpg, "pause_menu");

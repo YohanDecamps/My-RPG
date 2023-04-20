@@ -21,8 +21,10 @@ SRC	=	src/main.c						\
 		src/ray_cast/get_hit_point.c	\
 		src/init_entity.c				\
 		src/init_other_rpg_vars.c \
-    src/metal_pipe_handler.c \
+		src/metal_pipe_handler.c \
 		src/animate_entities.c			\
+		src/save.c							\
+		src/load.c							\
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
 		src/menu/init_all_buttons.c 		\

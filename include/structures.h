@@ -140,6 +140,7 @@
         int level;
         sfSprite *dialog;
         dialog_t *dialogs;
+        save_entry_t **save_entry;
         float gamma;
         float speed;
         sfClock *pipe_clock;

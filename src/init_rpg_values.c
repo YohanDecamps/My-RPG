@@ -13,6 +13,7 @@
 #include "entity.h"
 #include <SFML/System/Vector2.h>
 #include "dialogs.h"
+#include "system.h"
 
 rpg_t *init_mouse(rpg_t *rpg)
 {
@@ -74,5 +75,6 @@ rpg_t *init_rpg_variables(void)
     rpg->dialog = init_dialog_sprite();
     rpg = init_inventory(rpg);
     rpg->dialogs = NULL;
+    rpg->save_entry = fetch_save("save1");
     return (rpg);
 }
