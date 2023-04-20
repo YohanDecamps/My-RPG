@@ -1,12 +1,9 @@
-1;3;6;9;17;17
-MMMMMMMMMMMWWWWWWWWWWWwww
-M         MW            w
-M  B   B  MWWWWW WWWWWw w
-M B     B MWBBBB BBBB w w
-M         MRB       B w w
-M    E         w    B w w
-M         MRB  B    B w w
-M B     B MBB  w    BBB B
-M  B   B  MB            B
-M         MB        BBBBB
-MMMMMMMMMMMBBBBBBBBBB
+1;1;46;1;60;1
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwbwwwwwwwwwwwwwwwwwwwwwwww
+w       M     M                            w                        w
+w          M     M                         wwwwwwwwwwwwwwwwwwwwwwww w
+w       M     M                                                     w
+w          M     M                          wwwwwwwwwwwwwwww        w
+w       M     M            MMMMMMMM              M         w        w
+w          M     M                          MMMMMM                  w
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
