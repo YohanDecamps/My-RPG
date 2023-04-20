@@ -36,7 +36,7 @@ SRC	=	src/main.c							\
 		src/system/saves/setvalue.c			\
 		src/system/saves/delvalue.c			\
 		src/system/saves/freesave.c			\
-		src/system/saves/writesave.c
+		src/system/saves/writesave.c \
     src/particle.c \
 		src/dialogs/create_dialogs.c \
 		src/dialogs/display_dialogs.c \
