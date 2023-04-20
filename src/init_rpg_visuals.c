@@ -39,7 +39,8 @@ rpg_t *init_all_sprites(rpg_t *rpg)
     rpg = init_sprite(rpg, 'R', "assets/Arrow_Right.png");
     rpg = init_sprite(rpg, 'L', "assets/Arrow_Left.png");
     rpg = init_sprite(rpg, 'E', "assets/Escargot.png");
-    rpg->sprite_str = "BWwMRLE";
+    rpg = init_sprite(rpg, 'b', "assets/Letter_B.png");
+    rpg->sprite_str = "BWwMRLEb";
     rpg->metal_pipe =
     create_sprite("assets/metal_pipe.png", (sfVector2f) {-3, 3});
     sfSprite_setPosition(rpg->metal_pipe, (sfVector2f) {2000, 900});
