@@ -35,9 +35,9 @@ void set_settings_button(int state, button_t **all_buttons)
 int resolution_menu_little_window(button_t **buttons, rpg_t *rpg, char *menu)
 {
     sfRenderWindow_close(rpg->window);
-    rpg->window = create_window("RPG", 690, 420);
-    rpg->size_x = 690;
-    rpg->size_y = 420;
+    rpg->window = create_window("RPG", 960, 540);
+    rpg->size_x = 960;
+    rpg->size_y = 540;
     buttons[20]->state = NONE;
     if (my_strcmp(menu, "main_menu") == 0)
         return main_menu(rpg->window, rpg->event, rpg);
