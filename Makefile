@@ -55,6 +55,8 @@ SRC	=	src/main.c						\
 		src/dialogs/create_dialogs.c \
 		src/dialogs/display_dialogs.c \
 		src/dialogs/init_dialogs.c \
+		src/menu/level_selector.c \
+		src/menu/end_screen.c \
 		src/dialogs/free_dialogs.c	\
 		src/utils.c	\
 		src/handle_queu.c

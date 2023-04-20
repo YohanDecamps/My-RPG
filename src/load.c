@@ -35,4 +35,12 @@ void load (rpg_t *rpg)
     char *pos_y = save_getvalue(rpg->save_entry, "pos_y");
     rpg->player_pos.x = get_float_from_str(pos_x);
     rpg->player_pos.y = get_float_from_str(pos_y);
+    char *shrek_pos_x = save_getvalue(rpg->save_entry, "shrek_pos_x");
+    char *shrek_pos_y = save_getvalue(rpg->save_entry, "shrek_pos_y");
+    rpg->entity->pos.x = get_float_from_str(shrek_pos_x);
+    rpg->entity->pos.y = get_float_from_str(shrek_pos_y);
+    char *level = save_getvalue(rpg->save_entry, "level");
+    rpg->level = get_float_from_str(level);
+    char *speed = save_getvalue(rpg->save_entry, "speed");
+    rpg->speed = get_float_from_str(speed);
 }

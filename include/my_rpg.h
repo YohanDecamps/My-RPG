@@ -153,5 +153,6 @@
 
     void move_shrek (rpg_t *rpg);
     char *my_strcat_no_free (char *dest, char *src);
+    void button_handler(rpg_t *rpg);
 
 #endif /* !MY_H_ */
