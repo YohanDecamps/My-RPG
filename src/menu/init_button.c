@@ -7,6 +7,7 @@
 
 #include "structures.h"
 #include "menu.h"
+#include "my_rpg.h"
 
 static sfText *create_text(char *str)
 {

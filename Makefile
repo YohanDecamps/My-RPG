@@ -23,7 +23,6 @@ SRC	=	src/main.c						\
 		src/init_other_rpg_vars.c \
 		src/metal_pipe_handler.c \
 		src/animate_entities.c			\
-		src/save.c							\
 		src/load.c							\
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
@@ -41,6 +40,7 @@ SRC	=	src/main.c						\
 		src/particle.c \
 		src/system/inventory.c 				\
 		src/system/saves/fetch_save.c		\
+		src/system/saves/save.c				\
 		src/system/saves/getvalue.c			\
 		src/system/saves/setvalue.c			\
 		src/system/saves/delvalue.c			\

@@ -24,7 +24,8 @@
      *
      * @return sfBool - sfTRue ou sfFalse
      */
-    sfBool is_hover(struct button_s *button, sfRenderWindow *window);
+    sfBool is_hover(struct button_s *button, sfRenderWindow *window,
+    rpg_t *rpg);
 
     /**
      * @brief this funtion returns sfTrue if the button is cliked
@@ -34,7 +35,8 @@
      * @param rpg - rpg_t structure
      * @return sfBool - sfTrue or sfFalse
      */
-    sfBool is_clicked(struct button_s *button, sfRenderWindow *window);
+    sfBool is_clicked(struct button_s *button, sfRenderWindow *window,
+    rpg_t *rpg);
 
     /**
      * @brief initialises a new button_t stucture
