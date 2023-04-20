@@ -26,6 +26,7 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <stdio.h>
 #include <SFML/Graphics/Sprite.h>
+#include <SFML/Graphics/Text.h>
 #include <SFML/Graphics/Types.h>
 #include <SFML/Graphics/VertexArray.h>
 #include <SFML/System/Clock.h>
@@ -46,6 +47,9 @@ void draw_all(rpg_t *rpg)
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyM))
         draw_map(rpg);
+    sfText_setPosition(rpg->quest, (sfVector2f) {10, 10});
+    sfText_setColor(rpg->quest, sfWhite);
+    sfRenderWindow_drawText(rpg->window, rpg->quest, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyTab))
         inventory(rpg);
     display_framerate(rpg);
@@ -75,9 +79,9 @@ void loop(rpg_t *rpg)
     while (sfRenderWindow_isOpen(rpg->window)) {
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
-        if (manage_event(rpg) == 1) return;
+        if (manage_event(rpg) == 1)
+            return;
         rpg = handle_player_pos(rpg);
-        button_handler(rpg);
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
         animate_entities(rpg);
         set_entity_pos(rpg);

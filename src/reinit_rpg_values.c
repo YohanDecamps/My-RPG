@@ -15,6 +15,9 @@ rpg_t *reinit_rpg_values(rpg_t *rpg)
     rpg->gamma = 600;
     rpg->y_offset = rpg->size_y ;
     rpg->speed = 4;
+    rpg->entity->pv = 100;
+    rpg->entity->pos.x = 175;
+    rpg->entity->pos.y = 175;
     sfWindow_setMouseCursorVisible((sfWindow *) rpg->window, sfFalse);
     sfMusic_play(rpg->music);
     sfMouse_setPositionRenderWindow((sfVector2i) {rpg->size_x / 2,

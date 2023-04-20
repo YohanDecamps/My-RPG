@@ -11,7 +11,7 @@
 #include <stdio.h>
 #include <math.h>
 
-char * get_str_from_int (int nb, int nb_len, int i, int precision)
+static char * get_str_from_int (int nb, int nb_len, int i, int precision)
 {
     char *result;
     int result_index = 0;
@@ -73,5 +73,13 @@ void save (rpg_t *rpg)
     char *pos_y = get_str_from_float(rpg->player_pos.y, 5);
     save_info = save_setvalue(save_info, "pos_x", pos_x);
     save_info = save_setvalue(save_info, "pos_y", pos_y);
+    char *shrek_pos_x = get_str_from_float(rpg->entity->pos.x, 5);
+    char *shrek_pos_y = get_str_from_float(rpg->entity->pos.y, 5);
+    save_info = save_setvalue(save_info, "shrek_pos_x", shrek_pos_x);
+    save_info = save_setvalue(save_info, "shrek_pos_y", shrek_pos_y);
+    char *level = get_str_from_float(rpg->level, 1);
+    save_info = save_setvalue(save_info, "level", level);
+    char *speed = get_str_from_float(rpg->speed, 1);
+    save_info = save_setvalue(save_info, "speed", speed);
     save_writesave(save_info, "save1");
 }
