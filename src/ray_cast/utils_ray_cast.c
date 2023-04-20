@@ -58,7 +58,7 @@ void change_entity_position(rpg_t *rpg, int nb, ray_cast_t *rc)
         sfSprite_setPosition(rpg->entity[0].sprite, (sfVector2f)
         {960 + nb, rpg->y_offset});
     if (rpg->clone_slope + -960 * 0.0005 > angle
-    || rpg->clone_slope + 960 * 0.0005 < angle)
+    || rpg->clone_slope + 960 * 0.0005 < angle || rpg->entity[0].pv <= 0)
         sfSprite_setPosition(rpg->entity[0].sprite,
         (sfVector2f) {10000 + nb, rpg->y_offset});
     if (((rc->x_offset + 1) / 1920) >= rpg->entity[0].slope
