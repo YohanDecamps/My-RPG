@@ -23,6 +23,7 @@
 #include <SFML/Graphics/RectangleShape.h>
 #include <SFML/Graphics/RenderTexture.h>
 #include <SFML/Graphics/RenderWindow.h>
+#include <stdio.h>
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Types.h>
 #include <SFML/Graphics/VertexArray.h>
@@ -67,16 +68,14 @@ void loop(rpg_t *rpg)
         if (manage_event(rpg) == 1)
             return;
         rpg = handle_player_pos(rpg);
-        if (sfMouse_isButtonPressed(sfMouseLeft)) {
-            sfMusic_stop(rpg->metal_pipe_sound);
-            sfMusic_play(rpg->metal_pipe_sound);
-        }
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
         animate_entities(rpg);
         set_entity_pos(rpg);
         sfMouse_setPosition((sfVector2i) {rpg->size_x / 2, rpg->size_y / 2},
         (sfWindow *) rpg->window);
         draw_all(rpg);
+        metal_pipe_handler(rpg);
+        display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
 }

@@ -8,6 +8,8 @@
 #include "my_rpg.h"
 #include "structures.h"
 #include "sprites.h"
+#include <unistd.h>
+#include <stdio.h>
 #include "system.h"
 #include "lib.h"
 

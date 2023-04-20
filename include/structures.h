@@ -17,6 +17,7 @@
     #include <SFML/System/Vector2.h>
     #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System.h>
     #include <SFML/System/Clock.h>
 
     #define MAXWINSIZE (sfVector2u) {\
@@ -141,6 +142,8 @@
         dialog_t *dialogs;
         float gamma;
         float speed;
+        sfClock *pipe_clock;
+        int throw_speed;
         int size_x;
         int size_y;
         sfText *how_to_play_text;

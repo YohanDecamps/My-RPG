@@ -78,4 +78,11 @@
      */
     int save_writesave(save_entry_t **save, char *filename);
 
+    /**
+     * @brief This function save the nessesary information of the rpg struct
+     *
+     * @param rpg - the rpg struct, where the information to save is stored
+     */
+    void save (rpg_t *rpg);
+
 #endif /* !SYSTEM_H */

@@ -7,6 +7,8 @@
 #include "menu.h"
 #include "structures.h"
 #include "my_rpg.h"
+#include "system.h"
+#include <stdio.h>
 
 void draw_pause_menu(button_t **all_buttons, sfRenderWindow *window)
 {

@@ -20,8 +20,9 @@ SRC	=	src/main.c						\
 		src/ray_cast/utils_ray_cast.c	\
 		src/ray_cast/get_hit_point.c	\
 		src/init_entity.c				\
-		src/animate_entities.c			\
 		src/init_other_rpg_vars.c \
+    src/metal_pipe_handler.c \
+		src/animate_entities.c			\
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
 		src/menu/init_all_buttons.c 		\
@@ -34,7 +35,7 @@ SRC	=	src/main.c						\
 		src/menu/assign_keybind.c			\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
-		src/menu/update_button.c \
+		src/menu/update_button.c 			\
 		src/particle.c \
 		src/system/inventory.c 				\
 		src/system/saves/fetch_save.c		\

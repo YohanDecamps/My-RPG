@@ -66,6 +66,8 @@ rpg_t *init_rpg_variables(void)
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
+    rpg->pipe_clock = sfClock_create();
+    rpg->throw_speed = 2;
     rpg = init_entity(rpg);
     rpg->key_binds = malloc(sizeof(movement_keys_t));
     rpg = init_key_binds(rpg);
