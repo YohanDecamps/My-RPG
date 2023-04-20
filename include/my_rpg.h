@@ -68,8 +68,16 @@
      * @brief This function reinitialyses the value of rpg stuct
      *
      * @param rpg - rpg_t struture
-     * @return void
+     * @return rpg_t srtucture
     */
     rpg_t *reinit_rpg_values(rpg_t *rpg);
+
+    /**
+     * @brief This function init default key binds
+     *
+     * @param rpg - rpg_t structure
+     * @return rpg_t structure
+     */
+    rpg_t *init_key_binds(rpg_t *rpg);
 
 #endif /* !MY_H_ */

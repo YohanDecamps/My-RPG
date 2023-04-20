@@ -39,11 +39,12 @@ void draw_all(rpg_t *rpg)
     sfRectangleShape_setPosition(rpg->floor, (sfVector2f) {0, rpg->y_offset});
     sfRenderWindow_drawRectangleShape(rpg->window, rpg->floor, NULL);
     rpg = draw_all_ray_casts(rpg);
-    rpg->prev_mouse_pos = get_mouse_pos(rpg->window);
+    rpg->prev_mouse_pos = get_mouse_pos(rpg->window, rpg->size_x, rpg->size_y);
     sfRenderWindow_drawSprite(rpg->window, rpg->entity[0].sprite, NULL);
     sfRenderWindow_drawSprite(rpg->window, rpg->metal_pipe, NULL);
     if (sfKeyboard_isKeyPressed(sfKeyM) || sfKeyboard_isKeyPressed(sfKeyTab))
         draw_map(rpg);
+    display_framerate(rpg);
     display_dialogs(rpg);
 }
 
@@ -62,7 +63,7 @@ void loop(rpg_t *rpg)
         sfRenderWindow_clear(rpg->window, (sfColor) {32, 16, 16, 255});
         sfRenderTexture_clear(rpg->map_texture, sfTransparent);
         if (manage_event(rpg) == 1)
-            return 0;
+            return;
         rpg = handle_player_pos(rpg);
         if (sfMouse_isButtonPressed(sfMouseLeft)) {
             sfMusic_stop(rpg->metal_pipe_sound);
@@ -71,9 +72,9 @@ void loop(rpg_t *rpg)
         rpg = camera_mouvement(rpg, rpg->prev_mouse_pos);
         animate_entities(rpg);
         set_entity_pos(rpg);
-        sfMouse_setPosition((sfVector2i) {960, 540}, (sfWindow *) rpg->window);
+        sfMouse_setPosition((sfVector2i) {rpg->size_x / 2, rpg->size_y / 2},
+        (sfWindow *) rpg->window);
         draw_all(rpg);
-        display_framerate(rpg);
         sfRenderWindow_display(rpg->window);
     }
 }

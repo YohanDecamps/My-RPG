@@ -28,17 +28,19 @@ void draw_ray_sprite(rpg_t *rpg, ray_cast_t *rc, int i)
     char id = rpg->sprite_str[i];
     if (rpg->map.array[(int) rc->hit_point.y / 50]
     [(int) rc->hit_point.x / 50] == id) {
+        float xprd = rc->hit_point.x / 50 -
+        (int) (rc->hit_point.x / 50);
+        float yprd = rc->hit_point.y / 50 -
+        (int) (rc->hit_point.y / 50);
         float shades = rc->distance * 255 / rpg->gamma;
         if (shades > 255) shades = 255;
         sfSprite_setScale(sprite, (sfVector2f)
-        {1, (float) ((96 * 1080) / rc->distance) / 256});
+        {1, (float) ((96 * rpg->size_y) / rc->distance) / 256});
         sfSprite_setColor(sprite, (sfColor)
         {255 - shades, 255 - shades, 255 - shades, 255});
-        set_texture(rc->hit_point.y / 50 - (int)
-        (rc->hit_point.y / 50), rc->hit_point.x / 50 -
-        (int) (rc->hit_point.x / 50), sprite);
-        sfSprite_setPosition(sprite, (sfVector2f) {960 + rc->x_offset,
-        rpg->y_offset - (((96 * 1080) / rc->distance) / 2)});
+        set_texture(xprd, yprd, sprite);
+        sfSprite_setPosition(sprite, (sfVector2f) {rpg->size_x / 2 + rc->
+        x_offset, rpg->y_offset - (((96 * rpg->size_y) / rc->distance) / 2)});
         sfRenderWindow_drawSprite(rpg->window, sprite, NULL);
     }
 }
@@ -74,12 +76,12 @@ void draw_ray_cast(rpg_t *rpg, int nb)
 rpg_t *draw_all_ray_casts(rpg_t *rpg)
 {
     rpg->clone_slope = rpg->slope;
-    for (int i = 0; i <= 960; i++) {
+    for (int i = 0; i <= rpg->size_x / 2; i++) {
         draw_ray_cast(rpg, i);
         rpg->slope = rpg->clone_slope + 0.0005 * (i + 1);
     }
     rpg->slope = rpg->clone_slope;
-    for (int i = -0; i >= -960; i--) {
+    for (int i = -0; i >= -rpg->size_x / 2; i--) {
         draw_ray_cast(rpg, i);
         rpg->slope = rpg->clone_slope + 0.0005 * (i - 1);
     }
