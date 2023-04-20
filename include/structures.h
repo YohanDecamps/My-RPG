@@ -14,11 +14,13 @@
     #include <SFML/Graphics/Types.h>
     #include <SFML/Graphics/Vertex.h>
     #include <SFML/Graphics/Sprite.h>
-#include <SFML/System/Vector2.h>
+    #include <SFML/System/Vector2.h>
     #include <SFML/Window/Event.h>
     #include <SFML/System/Clock.h>
 
-    #define MAXWINSIZE (sfVector2u) {1920, 1080}
+    #define MAXWINSIZE (sfVector2u) {\
+    1920, 1080\
+    }
 
     // gravity suggested value = {0, 6000}
     // medium_speed suggested value = 40000
@@ -72,6 +74,8 @@
         sfKeyCode left;
         sfKeyCode right;
         sfKeyCode run;
+        sfKeyCode toggle_map;
+        sfKeyCode open_inventory;
     } movement_keys_t;
 
     typedef struct dialog_s {
@@ -115,6 +119,8 @@
         float speed;
         int size_x;
         int size_y;
+        sfText *how_to_play_text;
+        sfRenderTexture *how_to_play_back;
         movement_keys_t *key_binds;
     } rpg_t;
 

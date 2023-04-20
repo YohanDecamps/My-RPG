@@ -20,6 +20,15 @@ rpg_t *init_all_values(rpg_t *rpg)
     rpg->gamma = 600;
     rpg->y_offset = 540;
     rpg->speed = 4;
+    rpg->how_to_play_back = sfRenderTexture_create(500, 800, 0);
+    sfRenderTexture_clear(rpg->how_to_play_back, sfWhite);
+    rpg->how_to_play_text = create_text("You are Amonichi Gustavo,\n a SUS \
+Inc. employee.\nYour role is to retrieve the\nObunga last name meaning you\n\
+will have to adventure in his \nmanor.\nThe SUS inc. gave you a weapon\nto \
+defend yourself, but because\nof the inflation they could only\nafford a \
+Cardboard pipe\nthat you can use by pressing\nleft click.\nObunga's manor is \
+divided in\ndifferent floor, each one\nhaving its own menace.\n\n\
+Current objective :\nSurvive", 25);
     return (rpg);
 }
 

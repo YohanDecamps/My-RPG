@@ -9,6 +9,7 @@
 #include "structures.h"
 #include "sprites.h"
 #include "system.h"
+#include "lib.h"
 
 void show_saves(button_t **all_buttons, sfRenderWindow *window)
 {
@@ -17,12 +18,29 @@ void show_saves(button_t **all_buttons, sfRenderWindow *window)
     draw_button(all_buttons[4], window);
 }
 
+void how_to_play(button_t **all_buttons, rpg_t *rpg)
+{
+    if (all_buttons[6]->state == PRESSED) {
+        static sfSprite *draw;
+        if (draw == NULL)
+            draw = sfSprite_create();
+        sfRenderTexture_drawText(rpg->how_to_play_back,
+        rpg->how_to_play_text, NULL);
+        sfSprite_setTexture(draw,
+        sfRenderTexture_getTexture(rpg->how_to_play_back), 0);
+        sfSprite_setPosition(draw, (sfVector2f) {1300, 900});
+        sfSprite_setScale(draw, (sfVector2f) {1, -1});
+        sfRenderWindow_drawSprite(rpg->window, draw, NULL);
+    }
+}
+
 static void main_menu_handler(button_t **all_buttons, sfRenderWindow *window,
 rpg_t *rpg)
 {
     if (all_buttons[1]->state == PRESSED)
         show_saves(all_buttons, window);
     settings_menu(all_buttons, rpg, "main_menu");
+    how_to_play(all_buttons, rpg);
     draw_main_menu_buttons(all_buttons, window);
 }
 
