@@ -36,19 +36,12 @@ SRC	=	src/main.c						\
 		src/menu/update_all_buttons.c 		\
 		src/menu/update_button.c \
 		src/particle.c \
-		src/system/saves/fetch_save.c	\
-		src/system/saves/getvalue.c		\
-		src/system/saves/setvalue.c		\
-		src/system/saves/delvalue.c		\
-		src/system/saves/freesave.c		\
-		src/menu/update_button.c			\
 		src/system/saves/fetch_save.c		\
 		src/system/saves/getvalue.c			\
 		src/system/saves/setvalue.c			\
 		src/system/saves/delvalue.c			\
 		src/system/saves/freesave.c			\
 		src/system/saves/writesave.c \
-		src/particle.c \
 		src/dialogs/create_dialogs.c \
 		src/dialogs/display_dialogs.c \
 		src/dialogs/init_dialogs.c \
