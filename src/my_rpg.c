@@ -17,6 +17,7 @@
 #include <SFML/Audio/Music.h>
 #include <SFML/Graphics/RectangleShape.h>
 #include <SFML/Graphics/RenderTexture.h>
+#include <stdio.h>
 #include <SFML/Graphics/RenderWindow.h>
 
 void draw_all(rpg_t *rpg)

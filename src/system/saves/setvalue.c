@@ -37,7 +37,6 @@ save_entry_t **save_setvalue(save_entry_t **save, char *name, char *value)
     save = reallocate_save(save);
     if (save == NULL)
         return NULL;
-    printf("i = %d\n", i);
     save[i] = malloc(sizeof(save_entry_t));
     if (save[i] == NULL)
         return NULL;
