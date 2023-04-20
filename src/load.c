@@ -29,8 +29,10 @@ static float get_float_from_str(char* str)
 
 void load (rpg_t *rpg)
 {
-    if (rpg->save_entry == NULL)
+    if (rpg->save_entry == NULL) {
+        game_over_screen(rpg);
         return;
+    }
     char *pos_x = save_getvalue(rpg->save_entry, "pos_x");
     char *pos_y = save_getvalue(rpg->save_entry, "pos_y");
     rpg->player_pos.x = get_float_from_str(pos_x);
