@@ -11,6 +11,7 @@
 #include "sprites.h"
 #include "my_rpg.h"
 #include <SFML/System/Vector2.h>
+#include "dialogs.h"
 
 rpg_t *init_all_values(rpg_t *rpg)
 {
@@ -35,5 +36,7 @@ rpg_t *init_rpg_variables(void)
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
     rpg = init_entity(rpg);
+    rpg->dialog = init_dialog_sprite();
+    rpg->dialogs = NULL;
     return (rpg);
 }

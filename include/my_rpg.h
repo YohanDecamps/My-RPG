@@ -64,4 +64,19 @@
      */
     rpg_t *init_entity(rpg_t *rpg);
 
+     * @brief This function draw all the game elements
+     *
+     * @param rpg - rpg_t structure
+     * @return void
+    */
+    void draw_all(rpg_t *rpg);
+
+    /**
+     * @brief This function reinitialyses the value of rpg stuct
+     *
+     * @param rpg - rpg_t struture
+     * @return void
+    */
+    rpg_t *reinit_rpg_values(rpg_t *rpg);
+
 #endif /* !MY_H_ */

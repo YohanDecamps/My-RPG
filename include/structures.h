@@ -9,12 +9,36 @@
     #define STRUCTURES_H_
 
     #include <SFML/Audio/Types.h>
+    #include <SFML/Audio/Export.h>
     #include <SFML/Graphics/Color.h>
     #include <SFML/Graphics/Types.h>
     #include <SFML/Graphics/Vertex.h>
     #include <SFML/System/Types.h>
     #include <SFML/System/Vector2.h>
+    #include <SFML/Graphics/Sprite.h>
     #include <SFML/Window/Event.h>
+    #include <SFML/System/Clock.h>
+
+    #define MAXWINSIZE (sfVector2u) {1920, 1080}
+
+    // gravity suggested value = {0, 6000}
+    // medium_speed suggested value = 40000
+    typedef struct particles_args {
+        sfVector2f position;
+        sfTexture *texture;
+        int medium_speed_x;
+        int medium_speed_y;
+        int nbr;
+        int radius;
+    } particles_args_t;
+
+    typedef struct verletobject {
+        sfCircleShape *circle;
+        sfVector2f curr_pos;
+        sfVector2f old_pos;
+        sfVector2f acceleration;
+        int need_to_be_killed;
+    } verlet_t;
 
     typedef struct map_s {
         char **array;
@@ -40,6 +64,42 @@
         float slope;
     } entity_t;
 
+    enum e_gui_state {
+        NONE = 0,
+        HOVER,
+        PRESSED,
+    };
+
+    typedef struct button_s {
+        sfRectangleShape *rect;
+        sfText *name;
+        sfBool (*is_clicked) (struct button_s* button, sfRenderWindow *window);
+        sfBool (*is_hover) (struct button_s* button, sfRenderWindow *window);
+        enum e_gui_state state;
+        sfFloatRect hitbox;
+        int is_toggle;
+    } button_t;
+
+    typedef struct save_entry_s {
+        char *name;
+        char *value;
+    } save_entry_t;
+
+    typedef struct dialog_s {
+        sfText *name;
+        sfText *text;
+        sfClock *clock;
+        int time;
+        struct dialog_s *next;
+    } dialog_t;
+
+    typedef struct dialog_dim_s {
+        sfVector2f dialog_pos;
+        sfVector2f name_pos;
+        sfVector2f text_pos;
+        sfVector2f scale;
+    } dialog_dim_t;
+
     typedef struct rpg_s {
         sfRenderWindow *window;
         sfEvent *event;
@@ -62,6 +122,8 @@
         sfMusic *metal_pipe_sound;
         sfMusic *music;
         sfVector2f prev_mouse_pos;
+        sfSprite *dialog;
+        dialog_t *dialogs;
         float gamma;
         float speed;
     } rpg_t;
