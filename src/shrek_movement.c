@@ -19,8 +19,10 @@ void move_shrek (rpg_t *rpg)
     char **map = rpg->maps[rpg->level]->array;
     char **map_cpy = copy_char_array(map, map_len);
     char *instruction = find_path(map_cpy, &shrek_coord, &player_coord);
-    if (instruction == NULL)
+    if (instruction == NULL) {
+        game_over_screen(rpg);
         return;
+    }
     if (instruction[0] == 'u')
         rpg->entity->pos.y -= 2;
     if (instruction[0] == 'd')

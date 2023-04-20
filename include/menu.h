@@ -199,4 +199,12 @@
      */
     int inventory(rpg_t *rpg);
 
+    /**
+     * @brief game over screen
+     *
+     * @param rpg
+     * @return int
+     */
+    int game_over_screen(rpg_t *rpg);
+
 #endif /* !MAIN_MENU_H_ */
