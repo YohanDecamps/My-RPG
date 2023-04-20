@@ -14,7 +14,6 @@ static float get_float_from_str(char* str)
     int result = 0;
     float decimal = 0.0;
     float divisor = 1.0;
-
     while (*str != '.') {
         result = result * 10 + (*str - '0');
         ++str;
