@@ -10,12 +10,14 @@
 #include "structures.h"
 #include "sprites.h"
 #include "my_rpg.h"
+#include "entity.h"
+#include <SFML/System/Vector2.h>
 #include "dialogs.h"
 
 rpg_t *init_all_values(rpg_t *rpg)
 {
-    rpg->slope = 2 * pi;
-    rpg->player_pos.x = 75;
+    rpg->slope = SOUTH;
+    rpg->player_pos.x = 225;
     rpg->player_pos.y = 275;
     rpg->gamma = 600;
     rpg->y_offset = 540;
@@ -34,6 +36,7 @@ rpg_t *init_rpg_variables(void)
     rpg = init_all_sprites(rpg);
     rpg = init_shapes(rpg);
     rpg = init_sounds(rpg);
+    rpg = init_entity(rpg);
     rpg->dialog = init_dialog_sprite();
     rpg->dialogs = NULL;
     return (rpg);

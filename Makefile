@@ -5,19 +5,23 @@
 ## make file
 ##
 
-SRC	=	src/main.c							\
-		src/my_rpg.c						\
-		src/system/get_usr_input.c			\
-    	src/system/getenv.c					\
-		src/system/get_mouse_pos.c			\
-		src/handle_movement.c				\
-		src/draw_map.c						\
-		src/draw_ray_cast.c					\
-		src/camera_movement.c				\
-		src/display_framerate.c				\
-		src/init_rpg_values.c				\
-		src/init_rpg_visuals.c				\
-		src/init_other_rpg_vars.c			\
+SRC	=	src/main.c						\
+		src/my_rpg.c					\
+		src/system/get_usr_input.c		\
+    	src/system/getenv.c				\
+		src/system/get_mouse_pos.c		\
+		src/handle_movement.c			\
+		src/draw_map.c					\
+		src/camera_movement.c			\
+		src/display_framerate.c			\
+		src/init_rpg_values.c			\
+		src/init_rpg_visuals.c			\
+		src/ray_cast/draw_ray_cast.c	\
+		src/ray_cast/utils_ray_cast.c	\
+		src/ray_cast/get_hit_point.c	\
+		src/init_entity.c				\
+		src/animate_entities.c			\
+		src/init_other_rpg_vars.c \
 		src/menu/draw_all_buttons.c			\
 		src/menu/draw_button.c 				\
 		src/menu/init_all_buttons.c 		\
@@ -29,7 +33,7 @@ SRC	=	src/main.c							\
 		src/reinit_rpg_values.c				\
 		src/menu/update_all_buttons.c 		\
 		src/menu/update_button.c \
-    src/particle.c \
+		src/particle.c \
 		src/system/saves/fetch_save.c	\
 		src/system/saves/getvalue.c		\
 		src/system/saves/setvalue.c		\
@@ -86,8 +90,7 @@ PHONY	+= fclean
 re:	fclean all
 PHONY	+= re
 
-run: $(OBJ) lib
-	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
+run: $(OBJ) lib all
 	./$(NAME)
 
 compile_tests: lib
