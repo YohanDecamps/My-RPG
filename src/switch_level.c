@@ -20,6 +20,7 @@ int switch_level(rpg_t *rpg, int level)
     rpg->level = level;
     rpg->player_pos.x = rpg->maps[level]->meta[0] * 50;
     rpg->player_pos.y = rpg->maps[level]->meta[1] * 50;
-    rpg->level = level;
+    rpg->entity->pos.x = rpg->maps[level]->meta[4] * 50;
+    rpg->entity->pos.y = rpg->maps[level]->meta[5] * 50;
     return 0;
 }

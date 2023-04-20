@@ -59,6 +59,8 @@ rpg_t *init_maps(rpg_t *rpg)
     rpg->maps[1] = fetch_map(rpg, "assets/maps/map2.txt");
     rpg->maps[2] = fetch_map(rpg, "assets/maps/map3.txt");
     rpg->maps[3] = fetch_map(rpg, "assets/maps/map4.txt");
+    rpg->maps[4] = fetch_map(rpg, "assets/maps/map5.txt");
+    rpg->maps[5] = fetch_map(rpg, "assets/maps/map6.txt");
     rpg->maps[MAPS_COUNT] = NULL;
     return rpg;
 }

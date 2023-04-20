@@ -10,7 +10,7 @@
 
     #include "structures.h"
 
-    #define MAPS_COUNT 4
+    #define MAPS_COUNT 6
 
     /**
      * @brief The main function for the project

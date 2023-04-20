@@ -10,8 +10,8 @@
 rpg_t *reinit_rpg_values(rpg_t *rpg)
 {
     rpg->slope = 2 * pi;
-    rpg->player_pos.x = 75;
-    rpg->player_pos.y = 275;
+    rpg->player_pos.x = rpg->maps[rpg->level]->meta[0] * 50;
+    rpg->player_pos.y = rpg->maps[rpg->level]->meta[1] * 50;
     rpg->gamma = 600;
     rpg->y_offset = rpg->size_y ;
     rpg->speed = 4;
