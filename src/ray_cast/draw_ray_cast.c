@@ -63,9 +63,8 @@ ray_cast_t *get_hippoint_and_dist(rpg_t *rpg, int nb)
     return (rc);
 }
 
-void draw_ray_cast(rpg_t *rpg, int nb)
+void draw_ray_cast(rpg_t *rpg, int nb, ray_cast_t *rc)
 {
-    ray_cast_t *rc = get_hippoint_and_dist(rpg, nb);
     change_entity_position(rpg, nb, rc);
     for (int i = 0; i < my_strlen(rpg->sprite_str); i++)
         draw_ray_sprite(rpg, rc, i);
@@ -73,19 +72,48 @@ void draw_ray_cast(rpg_t *rpg, int nb)
 
 rpg_t *draw_all_ray_casts(rpg_t *rpg)
 {
+    float distance = sqrt(pow(rpg->player_pos.x - rpg->entity[0].pos.x, 2) +
+    pow(rpg->player_pos.y - rpg->entity[0].pos.y, 2));
     rpg->clone_slope = rpg->slope;
+    ray_cast_t *rc = NULL;
     for (int i = 0; i <= (rpg->size_x / 2); i++) {
-        draw_ray_cast(rpg, i);
+        rc = get_hippoint_and_dist(rpg, i);
+        if (rc->distance >= distance)
+            draw_ray_cast(rpg, i, rc);
         rpg->slope = rpg->clone_slope + (0.0005 * (1080 / rpg->size_y))
         * (i + 1);
     }
     rpg->slope = rpg->clone_slope;
     for (int i = -0; i >= -(rpg->size_x / 2); i--) {
-        draw_ray_cast(rpg, i);
+        rc = get_hippoint_and_dist(rpg, i);
+        if (rc->distance >= distance)
+            draw_ray_cast(rpg, i, rc);
         rpg->slope = rpg->clone_slope + (0.0005 * (1080 / rpg->size_y))
         * (i - 1);
     }
     rpg->slope = rpg->clone_slope;
-    draw_ray_cast(rpg, 0);
+    rc = get_hippoint_and_dist(rpg, 0);
+    if (rc->distance >= distance)
+        draw_ray_cast(rpg, 0, rc);
+    sfRenderWindow_drawSprite(rpg->window, rpg->entity[0].sprite, NULL);
+    for (int i = 0; i <= (rpg->size_x / 2); i++) {
+        rc = get_hippoint_and_dist(rpg, i);
+        if (rc->distance < distance)
+            draw_ray_cast(rpg, i, rc);
+        rpg->slope = rpg->clone_slope + (0.0005 * (1080 / rpg->size_y))
+        * (i + 1);
+    }
+    rpg->slope = rpg->clone_slope;
+    for (int i = -0; i >= -(rpg->size_x / 2); i--) {
+        rc = get_hippoint_and_dist(rpg, i);
+        if (rc->distance < distance)
+            draw_ray_cast(rpg, i, rc);
+        rpg->slope = rpg->clone_slope + (0.0005 * (1080 / rpg->size_y))
+        * (i - 1);
+    }
+    rpg->slope = rpg->clone_slope;
+    rc = get_hippoint_and_dist(rpg, 0);
+    if (rc->distance < distance)
+        draw_ray_cast(rpg, 0, rc);
     return (rpg);
 }
